@@ -6,9 +6,9 @@
 //************************************************/
 #include "GameMain.h"
 
-GameMain::GameMain(DX::DeviceResources* deviceResources)
+GameMain::GameMain(std::shared_ptr<DX::DeviceResources>  deviceResources)
 {
-	m_deviceResources.reset(deviceResources);
+	m_deviceResources = deviceResources;
 }
 
 GameMain::~GameMain()

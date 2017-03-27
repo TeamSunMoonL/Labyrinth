@@ -14,7 +14,7 @@
 class Game : public DX::IDeviceNotify
 {
 private:
-	GameMain* m_gameMain;
+	std::unique_ptr<GameMain>m_gameMain;
 
 public:
 
@@ -52,7 +52,7 @@ private:
     void CreateWindowSizeDependentResources();
 
 	// Device resources.
-	std::unique_ptr<DX::DeviceResources>    m_deviceResources;
+	std::shared_ptr<DX::DeviceResources>    m_deviceResources;
 
     // Rendering loop timer.
     DX::StepTimer                           m_timer;

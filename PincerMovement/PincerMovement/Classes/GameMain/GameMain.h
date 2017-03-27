@@ -12,10 +12,10 @@
 class GameMain
 {
 	// Device resources.
-	std::unique_ptr<DX::DeviceResources>    m_deviceResources;
+	std::shared_ptr<DX::DeviceResources>    m_deviceResources;
 
 public:
-	GameMain(DX::DeviceResources* deviceResources);
+	GameMain(std::shared_ptr<DX::DeviceResources>  deviceResources);
 	~GameMain();
 
 	//XVˆ—

@@ -13,16 +13,14 @@ using Microsoft::WRL::ComPtr;
 
 Game::Game()
 {
-	m_deviceResources = std::make_unique<DX::DeviceResources>();
+	m_deviceResources = std::make_shared<DX::DeviceResources>();
 	m_deviceResources->RegisterDeviceNotify(this);
 
-	//delete  ~Game
-	m_gameMain = new GameMain(m_deviceResources.get());
 }
 
 Game::~Game()
 {
-	delete m_gameMain;
+
 }
 
 // Initialize the Direct3D resources required to run.
@@ -42,6 +40,7 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
+	m_gameMain = std::make_unique<GameMain>(m_deviceResources);
 }
 
 #pragma region Frame Update
@@ -65,7 +64,7 @@ void Game::Update(DX::StepTimer const& timer)
     // TODO: Add your game logic here.
     elapsedTime;
 
-	m_gameMain->Update();
+	//m_gameMain->Update();
 
 }
 #pragma endregion
@@ -88,7 +87,7 @@ void Game::Render()
     // TODO: Add your rendering code here.
     context;
 
-	m_gameMain->Render();
+	//m_gameMain->Render();
 
     m_deviceResources->PIXEndEvent();
 
