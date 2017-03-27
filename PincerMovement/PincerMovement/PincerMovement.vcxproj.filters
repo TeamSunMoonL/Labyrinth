@@ -11,6 +11,15 @@
     <Filter Include="Classes">
       <UniqueIdentifier>{93527250-cc70-4dbc-9e92-c14437caf9d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\AI">
+      <UniqueIdentifier>{72bd57aa-afd1-4573-bcb8-24fc82552d8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\GameMain">
+      <UniqueIdentifier>{8d74999c-03bf-4537-97f9-d48bf63eaf1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\AI\Astar">
+      <UniqueIdentifier>{00a63629-e832-4e5f-b2df-6634df79a187}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -22,7 +31,16 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Classes\GameMain\GameMain.h">
-      <Filter>Classes</Filter>
+      <Filter>Classes\GameMain</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\AI\AI.h">
+      <Filter>Classes\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\AI\Astar\Astar.h">
+      <Filter>Classes\AI\Astar</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\AI\Astar\Node.h">
+      <Filter>Classes\AI\Astar</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -33,7 +51,13 @@
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="Classes\GameMain\GameMain.cpp">
-      <Filter>Classes</Filter>
+      <Filter>Classes\GameMain</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\AI\AI.cpp">
+      <Filter>Classes\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\AI\Astar\Astar.cpp">
+      <Filter>Classes\AI\Astar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

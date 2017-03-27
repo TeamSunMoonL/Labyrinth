@@ -6,6 +6,10 @@
 //************************************************/
 #include "GameMain.h"
 
+const int GameMain::MAP_X;
+const int GameMain::MAP_Y;
+const int GameMain::CHIP_SIZE;
+
 GameMain::GameMain(std::shared_ptr<DX::DeviceResources>  deviceResources)
 {
 	m_deviceResources = deviceResources;
@@ -13,6 +17,7 @@ GameMain::GameMain(std::shared_ptr<DX::DeviceResources>  deviceResources)
 
 GameMain::~GameMain()
 {
+
 }
 
 void GameMain::Update()

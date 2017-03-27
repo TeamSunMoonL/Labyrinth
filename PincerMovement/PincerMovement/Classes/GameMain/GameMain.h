@@ -11,6 +11,14 @@
 
 class GameMain
 {
+public:
+	//マップサイズ
+	static const int MAP_X = 25;
+	static const int MAP_Y = 16;
+	 
+	//マップチップサイズ
+	static const int CHIP_SIZE = 32;
+
 	// Device resources.
 	std::shared_ptr<DX::DeviceResources>    m_deviceResources;
 

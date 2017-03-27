@@ -149,6 +149,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\AI\AI.h" />
+    <ClInclude Include="Classes\AI\Astar\Astar.h" />
+    <ClInclude Include="Classes\AI\Astar\Node.h" />
     <ClInclude Include="Classes\GameMain\GameMain.h" />
     <ClInclude Include="DeviceResources.h" />
     <ClInclude Include="Game.h" />
@@ -156,6 +159,8 @@
     <ClInclude Include="StepTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Classes\AI\AI.cpp" />
+    <ClCompile Include="Classes\AI\Astar\Astar.cpp" />
     <ClCompile Include="Classes\GameMain\GameMain.cpp" />
     <ClCompile Include="DeviceResources.cpp" />
     <ClCompile Include="Game.cpp" />
