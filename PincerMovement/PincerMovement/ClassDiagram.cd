@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DX::DeviceResources" Collapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>igAApAAAAAAGAJBEQAIBKAKQEVAAAAjQIEUAAiyFIIo=</HashCode>
+      <FileName>DeviceResources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DX::StepTimer" Collapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQEQAAAAQEQAABQEAIAIAAIAABQCAAgCAwBQJAAwAA=</HashCode>
+      <FileName>StepTimer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DX::com_exception" Collapsed="true">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAACAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>pch.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAQQAQAGAAAAgAAAAAgAAABCAJACAARIQAQ=</HashCode>
+      <FileName>Game.h</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="DX::IDeviceNotify" Collapsed="true">
+    <Position X="4.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DeviceResources.h</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>
