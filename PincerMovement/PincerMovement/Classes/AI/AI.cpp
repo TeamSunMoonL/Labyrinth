@@ -10,31 +10,55 @@
 
 
 //＋ーーーーーーーーーーーーーー＋
+//｜機能  :コンストラクタ
+//｜引数  :自分の属性(int)
+//｜引数  :索敵範囲　(int)
+//＋ーーーーーーーーーーーーーー＋
+AI::AI(int attribute, int range)
+	:m_attribute(attribute)
+	,m_searchRange(range)
+{
+
+}
+
+
+//＋ーーーーーーーーーーーーーー＋
 //｜機能  :次に移動する座標を取得
 //｜引数  :なし(void)
 //｜戻り値:座標(Tile)	
 //＋ーーーーーーーーーーーーーー＋
 Tile AI::GetNext()
 {
+	//次に進む座標を取得
+	Tile nextTile = m_route[m_next];
+
+	//次の座標が進行不可能ならば
+	if (m_map[nextTile.row][nextTile.column] != P)
+	{
+		//元の位置を返す
+		nextTile = m_route[m_next - 1];
+	}
+	else
+	{
+		//進行可能ならば
+		//次へ進める
+		m_next++;
+	}
+
 	//座標を返す
-	return m_next;
+	return nextTile;
 }
 
 
 //＋ーーーーーーーーーーーーーー＋
-//｜機能  :更新処理
+//｜機能  :属性マップの更新処理
 //｜引数  :なし(void)
 //｜戻り値:なし(void)	
 //＋ーーーーーーーーーーーーーー＋
-void AI::Update()
+void AI::UpdateAttributeMap()
 {
-	//情報の取得
 
-
-	//道筋の更新
-	UpdateRoute();
 }
-
 
 
 //＋ーーーーーーーーーーーーーー＋
@@ -44,24 +68,26 @@ void AI::Update()
 //＋ーーーーーーーーーーーーーー＋
 void AI::UpdateRoute()
 {
-	if (m_start.row    != m_end.row
-	  ||m_start.column != m_end.column)
+	if (m_start.row    != m_target.row
+	  ||m_start.column != m_target.column)
 	{
-
 		//A*法
 		AStar astar;
 
 		//初期化
-		astar.Initialize(m_map, m_start, m_end);
+		astar.Initialize(m_map, m_start, m_target);
 
 		//探索
 		astar.Search();
 
 		//道筋を取得
-		m_next = astar.GetNext();
+		m_route = astar.GetRoute();
 
 		//終了処理
 		astar.Finalize();
+	
+		//次に進む座標をリセット
+		m_next = 0;
 	}
 }
 

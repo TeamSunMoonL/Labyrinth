@@ -10,31 +10,47 @@
 
 class AI
 {
-private:
+protected:
 	//マップデータ
 	std::vector<std::vector<int>>m_map;
 
 	//次に進む座標の番号
-	Tile m_next;
+	int m_next;
+
+	//進む道筋
+	std::vector<Tile>m_route;
 
 	//現在位置
 	Tile m_start;
 
 	//ターゲット
-	Tile m_end;
+	Tile m_target;
 
+	//自分の属性
+	int m_attribute;
+
+	//索敵範囲
+	int m_searchRange;
 
 public:
-	AI(){};
+
+	AI(int attribute, int range = 1);
 	~AI() {};
+
+	void SetStart(const Tile& nowTile) { m_start = nowTile; }
+	void SetTarget(const Tile& nowTile) { m_start = nowTile; }
 
 	//次に移動する座標を返す
 	Tile GetNext();
 
 	//更新処理
-	void Update();
+	virtual void Update() = 0;
 
-private:
+
+protected:
+	//属性マップの更新処理
+	void UpdateAttributeMap();
+
 	//道筋の更新
 	void UpdateRoute();
 
