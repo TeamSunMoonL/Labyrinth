@@ -53,6 +53,19 @@ void AStar::Initialize(const vector<vector<int>>& map, const Tile& start, const 
 
 
 
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :指定タイルのコストを加算する
+//｜引数  :タイル座標(Tile)
+//｜引数  :コスト(int)
+//｜戻り値:なし(void)	
+//＋ーーーーーーーーーーーーーー＋
+void AStar::AddCost(const Tile & tile, int cost)
+{
+	m_tileMap[tile.row][tile.column]->AddCost(cost);
+}
+
+
+
 
 //＋ーーーーーーーーーーーーーー＋
 //｜機能  :終了処理
@@ -226,7 +239,7 @@ void AStar::CalculateScore()
 		// コストを計算する
 		if ((*openListItr)->Cost() == 0)
 		{
-			(*openListItr)->Cost((*openListItr)->Parent()->Cost() + 1);
+			(*openListItr)->Cost((*openListItr)->Parent()->Cost() + (*openListItr)->Cost() + 1);
 		}
 	
 		// ヒューリスティックを計算する

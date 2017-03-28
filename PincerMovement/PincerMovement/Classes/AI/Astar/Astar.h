@@ -77,8 +77,23 @@ public:
 	// 初期化する
 	void Initialize(const std::vector<std::vector<int>>& map,const Tile& start,const Tile& end);
 
+	//タイルのコストを設定する
+	void AddCost(const Tile& tile, int cost);
+
+	// 探索する
+	bool Search();
+
 	// 終了処理をする
 	void Finalize();
+
+	//次の座標を返す
+	Tile GetNext();
+
+	//道筋を返す
+	const std::vector<Tile>& GetRoute();
+
+private:
+	void SetRoute(Node* parent);
 
 	// Nodeオブジェクトを生成し、tile_map配列にそのポインタを格納する
 	void CreateTileMap(const std::vector<std::vector<int>>& map);
@@ -89,8 +104,6 @@ public:
 	// ２タイル間の距離を計算する
 	int Distance(Node* node1, Node* node2);
 
-	// 探索する
-	bool Search();
 
 	// 近接ノードをオープンリストに追加する
 	bool AddNodetoOpenList(int y, int x);
@@ -104,15 +117,6 @@ public:
 	// オープンリストとクローズリストを処理する 
 	bool ProcessOpenCloseList(list<Node*>::iterator minscore_itr);
 
-
-	//次の座標を返す
-	Tile GetNext();
-
-	//道筋を返す
-	const std::vector<Tile>& GetRoute();
-
-private:
-	void SetRoute(Node* parent);
 };
 
 #endif // ASTAR

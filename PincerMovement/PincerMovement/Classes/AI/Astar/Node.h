@@ -58,6 +58,9 @@ public:
 	// コストを設定する
 	void Cost(int cost) { this->cost = cost; }
 
+	//コストを加算する
+	void AddCost(int cost) { this->cost += cost; }
+
 	// コストを取得する
 	int  Cost() { return this->cost; }
 	

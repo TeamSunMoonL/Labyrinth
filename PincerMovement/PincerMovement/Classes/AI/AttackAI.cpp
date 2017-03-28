@@ -28,6 +28,8 @@ AttackAI::AttackAI(int attribute, int range)
 void AttackAI::Update()
 {
 	//マップ情報更新
+	//(GameManagerから取得)
+
 
 	//ルート上を索敵
 	if (Search())
