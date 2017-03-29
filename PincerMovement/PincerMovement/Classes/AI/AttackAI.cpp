@@ -30,7 +30,6 @@ AttackAI::AttackAI(int attribute, int range)
 //＋ーーーーーーーーーーーーーー＋
 void AttackAI::Update(const Tile& start)
 {
-
 	//現在位置更新
 	m_start = start;
 

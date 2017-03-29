@@ -37,9 +37,6 @@ public:
 	AI(int attribute, int range = 1);
 	~AI() {};
 
-	void SetStart(const Tile& nowTile) { m_start = nowTile; }
-	void SetTarget(const Tile& nowTile) { m_start = nowTile; }
-
 	//Ÿ‚ÉˆÚ“®‚·‚éÀ•W‚ğ•Ô‚·
 	Tile GetNext();
 
