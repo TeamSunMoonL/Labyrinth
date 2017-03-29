@@ -75,7 +75,8 @@ public:
 	~AStar();
 
 	// 初期化する
-	void Initialize(const std::vector<std::vector<int>>& map,const Tile& start,const Tile& end);
+	void Initialize(const std::vector<std::vector<int>>& map, const Tile& start, const Tile& end);
+	void Initialize(const std::vector<std::vector<int>>& map, const Tile& start, std::vector<Tile>& end);
 
 	//タイルのコストを設定する
 	void AddCost(const Tile& tile, int cost);
@@ -93,6 +94,10 @@ public:
 	const std::vector<Tile>& GetRoute();
 
 private:
+	//現在位置から最も近いターゲットを探す
+	int FindNeedTile(const Tile& start,std::vector<Tile>& target);
+
+	//道筋を設定
 	void SetRoute(Node* parent);
 
 	// Nodeオブジェクトを生成し、tile_map配列にそのポインタを格納する

@@ -62,7 +62,9 @@
     <ClCompile Include="Classes\AI\Astar\Astar.cpp">
       <Filter>Classes\AI\Astar</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\AI\AttackAI.cpp" />
+    <ClCompile Include="Classes\AI\AttackAI.cpp">
+      <Filter>Classes\AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

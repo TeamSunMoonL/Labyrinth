@@ -41,10 +41,47 @@ void AStar::Initialize(const vector<vector<int>>& map, const Tile& start, const 
 	// スタートノードオブジェクトを生成する
 	//delete Finalize
 	m_pStartNode = new Node(start.row, start.column, S, nullptr);
-	
+
 	// エンドノードオブジェクトを生成する
 	//delete Finalize
 	m_pEndNode = new Node(end.row, end.column, E, nullptr);
+
+
+	// Nodeオブジェクトを生成し、tile_map配列にそのポインタを格納する
+	CreateTileMap(map);
+}
+
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :初期化処理
+//｜引数  :マップ　(int[][])
+//｜引数  :スタート(Tile)
+//｜引数  :ゴール　(Tile)
+//｜戻り値:なし(void)	
+//＋ーーーーーーーーーーーーーー＋
+void AStar::Initialize(const vector<vector<int>>& map, const Tile& start, vector<Tile>& end)
+{
+	// スタートノードオブジェクトを生成する
+	//delete Finalize
+	m_pStartNode = new Node(start.row, start.column, S, nullptr);
+
+	vector<Tile>::iterator itr;
+	int d = 9999;
+	int n = 0;
+	for (itr = end.begin(); itr < end.end(); itr++)
+	{
+		int deltaRow = start.row - itr->row;
+		int deltaColumn = start.column - itr->column;
+
+		if (abs(deltaRow) + abs(deltaColumn) < d)
+		{
+			d = abs(deltaRow) + abs(deltaColumn);
+			n = itr - end.begin();
+		}
+	}
+
+	// エンドノードオブジェクトを生成する
+	//delete Finalize
+	m_pEndNode = new Node(end[n].row, end[n].column, E, nullptr);
 
 
 	// Nodeオブジェクトを生成し、tile_map配列にそのポインタを格納する
@@ -369,6 +406,41 @@ const vector<Tile>& AStar::GetRoute()
 	return m_route;
 }
 
+
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :道筋を返す
+//｜引数  :現在位置    (Tile)
+//｜引数  :ターゲット  (vector<Tile>)
+//｜戻り値:最も近いターゲット   (int)	
+//＋ーーーーーーーーーーーーーー＋
+int AStar::FindNeedTile(const Tile & start, std::vector<Tile>& target)
+{
+	//ターゲットのイテレータ
+	vector<Tile>::iterator itr;
+
+	//２点間の距離保管用
+	int d = 9999;
+	
+	//最も近いターゲットの番号を保管
+	int n = 0;
+
+	//現在位置とターゲットの距離を比較
+	for (itr = target.begin(); itr < target.end(); itr++)
+	{
+		//現在位置とターゲットの距離を比較
+		int deltaRow = start.row - itr->row;
+		int deltaColumn = start.column - itr->column;
+
+		//最短距離を更新
+		if (abs(deltaRow) + abs(deltaColumn) < d)
+		{
+			d = abs(deltaRow) + abs(deltaColumn);
+			n = itr - target.begin();
+		}
+	}
+
+	return n;
+}
 
 //＋ーーーーーーーーーーーーーー＋
 //｜機能  :ルートを確定する

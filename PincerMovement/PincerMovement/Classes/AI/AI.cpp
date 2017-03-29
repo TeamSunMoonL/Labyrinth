@@ -68,8 +68,7 @@ void AI::UpdateAttributeMap()
 //＋ーーーーーーーーーーーーーー＋
 void AI::UpdateRoute()
 {
-	if (m_start.row    != m_target.row
-	  ||m_start.column != m_target.column)
+	if (ShouldUpdateRoute())
 	{
 		//A*法
 		AStar astar;
@@ -89,6 +88,24 @@ void AI::UpdateRoute()
 		//次に進む座標をリセット
 		m_next = 0;
 	}
+}
+
+bool AI::ShouldUpdateRoute()
+{
+
+	vector<Tile>::iterator itr;
+
+	for (itr = m_target.begin(); itr < m_target.end(); itr++)
+	{
+		if (m_start.row == itr->row
+		 || m_start.column == itr->column)
+		{
+			//現在位置とターゲットが１つでも一致していた場合
+			return false;
+		}
+	}
+
+	return true;
 }
 
 

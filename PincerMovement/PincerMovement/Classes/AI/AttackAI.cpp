@@ -1,7 +1,7 @@
 //************************************************/
 //* @file  :AttackAI.h
-//* @brief :1つのターゲットを追いかけるAIのヘッダーファイル
-//* @date  :2017/03/28
+//* @brief :1つのターゲットを追いかけるAIのソースファイル
+//* @date  :2017/03/29
 //* @author:S.Katou
 //************************************************/
 #include "../../pch.h"
@@ -17,6 +17,7 @@ AttackAI::AttackAI(int attribute, int range)
 	:AI(attribute,range)
 {
 	//ターゲット設定
+	//(GameManagerから取得予定)
 }
 
 
@@ -28,7 +29,7 @@ AttackAI::AttackAI(int attribute, int range)
 void AttackAI::Update()
 {
 	//マップ情報更新
-	//(GameManagerから取得)
+	//(GameManagerから取得予定)
 
 
 	//ルート上を索敵

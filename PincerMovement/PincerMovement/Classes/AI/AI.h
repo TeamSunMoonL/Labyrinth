@@ -24,7 +24,7 @@ protected:
 	Tile m_start;
 
 	//ターゲット
-	Tile m_target;
+	std::vector<Tile> m_target;
 
 	//自分の属性
 	int m_attribute;
@@ -53,5 +53,8 @@ protected:
 
 	//道筋の更新
 	void UpdateRoute();
+
+	//道筋の更新をするべきかどうかを返す
+	bool ShouldUpdateRoute();
 
 };
