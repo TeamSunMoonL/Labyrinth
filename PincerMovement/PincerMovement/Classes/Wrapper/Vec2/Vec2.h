@@ -1,36 +1,41 @@
 //************************************************/
-//* @file  :Vec3.h
-//* @brief :３次元ベクトル用のラップクラス
-//* @date  :2017/02/22
-//* @author:S.Katou
+//* @file  :Vec2.h
+//* @brief :2次元ベクトル用のラップクラス
+//* @date  :2017/03/29
+//* @author:K.Yamamoto
 //************************************************/
+
+// 多重インクルード防止
 #pragma once
+
+// ヘッダファイルのインクルード
 #include <d3d11.h>
 #include <SimpleMath.h>
 
-namespace ShunLib
+// 名前空間使用
+namespace YamagenLib
 {
-	class Vec3
+	// Vec2クラス
+	class Vec2
 	{
 	public:
 		float m_x;
 		float m_y;
-		float m_z;
 
 	public:
-		Vec3();
-		Vec3(float x, float y, float z);
-		~Vec3();
+		Vec2();
+		Vec2(float x, float y);
+		~Vec2();
 
-		//ベクトルをDirectXの形式で返す
-		DirectX::SimpleMath::Vector3 GetDirectVec3();
+		// ベクトルをDirectXの形式で返す
+		DirectX::SimpleMath::Vector2 GetDirectVec2();
 	
 		/*--[演算子のオーバーロード]--*/
-		Vec3& operator=(const Vec3& V);
-		Vec3& operator=(const DirectX::SimpleMath::Vector3& V);
-		Vec3& operator+(const Vec3& V);
-		Vec3& operator-(const Vec3& V);
-		Vec3& operator*(int num);
+		Vec2& operator=(const Vec2& V);
+		Vec2& operator=(const DirectX::SimpleMath::Vector2& V);
+		Vec2& operator+(const Vec2& V);
+		Vec2& operator-(const Vec2& V);
+		Vec2& operator*(int num);
 
 	};
 }
