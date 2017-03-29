@@ -9,6 +9,7 @@
 #pragma once
 
 // ヘッダファイルのインクルード
+#include "../Wrapper/Model/Model.h"
 #include "../Wrapper/Vec2/Vec2.h"
 #include "../AI/AI.h"
 // 列挙型
@@ -34,6 +35,7 @@ protected:
 	YamagenLib::Vec2 m_pos;
 
 	// 3Dモデル
+	
 
 	// 方向
 	Direction m_direction;

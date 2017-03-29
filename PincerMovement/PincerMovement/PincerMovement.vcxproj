@@ -156,6 +156,7 @@
     <ClInclude Include="Classes\AI\AttackAI.h" />
     <ClInclude Include="Classes\GameMain\GameMain.h" />
     <ClInclude Include="Classes\Object\Object.h" />
+    <ClInclude Include="Classes\Wrapper\Model\Model.h" />
     <ClInclude Include="Classes\Wrapper\Vec2\Vec2.h" />
     <ClInclude Include="DeviceResources.h" />
     <ClInclude Include="Game.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Classes\AI\AttackAI.cpp" />
     <ClCompile Include="Classes\GameMain\GameMain.cpp" />
     <ClCompile Include="Classes\Object\Object.cpp" />
+    <ClCompile Include="Classes\Wrapper\Model\Model.cpp" />
     <ClCompile Include="Classes\Wrapper\Vec2\Vec2.cpp" />
     <ClCompile Include="DeviceResources.cpp" />
     <ClCompile Include="Game.cpp" />

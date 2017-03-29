@@ -29,6 +29,9 @@
     <Filter Include="Classes\Wrapper\Vec2">
       <UniqueIdentifier>{96bda949-ce49-46b2-b5d0-8ee47b5808d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Wrapper\Model">
+      <UniqueIdentifier>{d3b7e6c1-5c69-4117-9ccb-eb442c24c3a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -60,6 +63,9 @@
     <ClInclude Include="Classes\Wrapper\Vec2\Vec2.h">
       <Filter>Classes\Wrapper\Vec2</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Wrapper\Model\Model.h">
+      <Filter>Classes\Wrapper\Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -85,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="Classes\Wrapper\Vec2\Vec2.cpp">
       <Filter>Classes\Wrapper\Vec2</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrapper\Model\Model.cpp">
+      <Filter>Classes\Wrapper\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
