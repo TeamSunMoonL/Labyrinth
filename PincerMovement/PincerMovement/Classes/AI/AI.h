@@ -1,7 +1,7 @@
 //************************************************/
 //* @file  :AI.h
 //* @brief :AIのヘッダーファイル
-//* @date  :2017/03/27
+//* @date  :2017/03/29
 //* @author:S.Katou
 //************************************************/
 #pragma once
@@ -37,14 +37,11 @@ public:
 	AI(int attribute, int range = 1);
 	~AI() {};
 
-	void SetStart(const Tile& nowTile) { m_start = nowTile; }
-	void SetTarget(const Tile& nowTile) { m_start = nowTile; }
-
 	//次に移動する座標を返す
 	Tile GetNext();
 
 	//更新処理
-	virtual void Update() = 0;
+	virtual void Update(const Tile& start) = 0;
 
 
 protected:
@@ -52,9 +49,9 @@ protected:
 	void UpdateAttributeMap();
 
 	//道筋の更新
-	void UpdateRoute();
+	virtual void UpdateRoute();
 
 	//道筋の更新をするべきかどうかを返す
-	bool ShouldUpdateRoute();
+	virtual bool ShouldUpdateRoute();
 
 };

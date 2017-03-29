@@ -15,7 +15,7 @@ public:
 	~AttackAI() {};
 
 	//XVˆ—
-	void Update()override;
+	void Update(const Tile& start)override;
 
 private:
 	//õ“G

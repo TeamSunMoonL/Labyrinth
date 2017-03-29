@@ -18,6 +18,8 @@ AttackAI::AttackAI(int attribute, int range)
 {
 	//ターゲット設定
 	//(GameManagerから取得予定)
+
+
 }
 
 
@@ -26,11 +28,10 @@ AttackAI::AttackAI(int attribute, int range)
 //｜引数  :なし(void)
 //｜戻り値:なし(void)	
 //＋ーーーーーーーーーーーーーー＋
-void AttackAI::Update()
+void AttackAI::Update(const Tile& start)
 {
-	//マップ情報更新
-	//(GameManagerから取得予定)
-
+	//現在位置更新
+	m_start = start;
 
 	//ルート上を索敵
 	if (Search())
