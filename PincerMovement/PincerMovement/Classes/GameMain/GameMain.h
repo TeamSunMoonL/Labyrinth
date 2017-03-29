@@ -20,7 +20,7 @@ public:
 	static const int CHIP_SIZE = 32;
 
 	// Device resources.
-	std::shared_ptr<DX::DeviceResources>    m_deviceResources;
+	static std::shared_ptr<DX::DeviceResources>    m_deviceResources;
 
 public:
 	GameMain(std::shared_ptr<DX::DeviceResources>  deviceResources);
