@@ -9,6 +9,7 @@
 const int GameMain::MAP_X;
 const int GameMain::MAP_Y;
 const int GameMain::CHIP_SIZE;
+std::shared_ptr<DX::DeviceResources>    GameMain::m_deviceResources;
 
 GameMain::GameMain(std::shared_ptr<DX::DeviceResources>  deviceResources)
 {
