@@ -45,6 +45,9 @@
     <ClInclude Include="Classes\AI\AttackAI.h">
       <Filter>Classes\AI</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\GameMain\GameManager.h">
+      <Filter>Classes\GameMain</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -64,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="Classes\AI\AttackAI.cpp">
       <Filter>Classes\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\GameMain\GameManager.cpp">
+      <Filter>Classes\GameMain</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
