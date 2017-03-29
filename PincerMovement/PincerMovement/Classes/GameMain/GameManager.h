@@ -11,6 +11,7 @@
 
 class Player;
 class Enemy;
+class DefenseTarget;
 
 class GameManager
 {
@@ -24,6 +25,8 @@ private:
 	// 敵
 	std::vector<Enemy*> m_enemy;
 
+	//防衛対象
+	std::vector<DefenseTarget*>m_target;
 
 public:
 	//＋ーーーーーーーーーーーーーー＋
@@ -40,12 +43,18 @@ public:
 	// マップの更新
 	void Update();
 
-	// プレイヤーの登録
-	void RegisterPlayer(Player* pPlayer);
+	// 登録
+	void Register(Player* player)		 { m_player.push_back(player);}
+	void Register(Enemy* enemy)			 { m_enemy.push_back(enemy);  }
+	void Register(DefenseTarget* target) { m_target.push_back(target);}
 
-	// 敵の作成
+	//マップの取得
+	const std::vector<std::vector<int>>& GetMap() { return m_map; }
 
-private: // 隠蔽
+
+
+	/*--[以下隠蔽]--*/
+private: 
 
 	// コンストラクタ
 	GameManager();

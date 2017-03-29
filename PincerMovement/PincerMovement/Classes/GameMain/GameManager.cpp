@@ -1,8 +1,8 @@
 //************************************************/
 //* @file  :gameManager.cpp
 //* @brief :ゲームを管理するクラスのソースファイル
-//* @date  :2017/03/14
-//* @author:K.Yamamoro
+//* @date  :2017/03/29
+//* @author:S.Katou
 //************************************************/
 
 // ヘッダファイルのインクルード
@@ -27,22 +27,15 @@ void GameManager::Update()
 		{
 			//マップデータコピー
 			m_map;
-
-			m_player;
 		}
 	}
-	m_map;
 
-	
+	//プレイヤーの位置の属性を変更
+	m_player;
+
+	//敵の位置の属性を変更
+	m_enemy;
 }
-
-void GameManager::RegisterPlayer(Player * pPlayer)
-{
-
-}
-
-
-
 
 
 
