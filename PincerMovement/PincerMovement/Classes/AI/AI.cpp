@@ -7,7 +7,7 @@
 #include "AI.h"
 #include "Astar\Astar.h"
 #include "../../Game.h"
-
+#include "../GameMain/GameManager.h"
 
 //＋ーーーーーーーーーーーーーー＋
 //｜機能  :コンストラクタ
@@ -70,11 +70,13 @@ void AI::UpdateRoute()
 {
 	if (ShouldUpdateRoute())
 	{
+		GameManager* manager = GameManager::GetInstance();
+
 		//A*法
 		AStar astar;
 
 		//初期化
-		astar.Initialize(m_map, m_start, m_target);
+		astar.Initialize(manager->GetMap(), m_start, m_target);
 
 		//探索
 		astar.Search();

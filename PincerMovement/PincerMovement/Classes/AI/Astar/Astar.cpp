@@ -40,11 +40,11 @@ void AStar::Initialize(const vector<vector<int>>& map, const Tile& start, const 
 {
 	// スタートノードオブジェクトを生成する
 	//delete Finalize
-	m_pStartNode = new Node(start.row, start.column, S, nullptr);
+	m_startNode = new Node(start.row, start.column, S, nullptr);
 
 	// エンドノードオブジェクトを生成する
 	//delete Finalize
-	m_pEndNode = new Node(end.row, end.column, E, nullptr);
+	m_endNode = new Node(end.row, end.column, E, nullptr);
 
 
 	// Nodeオブジェクトを生成し、tile_map配列にそのポインタを格納する
@@ -62,7 +62,7 @@ void AStar::Initialize(const vector<vector<int>>& map, const Tile& start, vector
 {
 	// スタートノードオブジェクトを生成する
 	//delete Finalize
-	m_pStartNode = new Node(start.row, start.column, S, nullptr);
+	m_startNode = new Node(start.row, start.column, S, nullptr);
 
 
 	//最も近いターゲットをゴールに設定
@@ -70,7 +70,7 @@ void AStar::Initialize(const vector<vector<int>>& map, const Tile& start, vector
 
 	// エンドノードオブジェクトを生成する
 	//delete Finalize
-	m_pEndNode = new Node(end[target].row, end[target].column, E, nullptr);
+	m_endNode = new Node(end[target].row, end[target].column, E, nullptr);
 
 
 	// Nodeオブジェクトを生成し、tile_map配列にそのポインタを格納する
@@ -101,10 +101,10 @@ void AStar::AddCost(const Tile & tile, int cost)
 void AStar::Finalize() 
 {
 	//new Initialize
-	delete m_pStartNode;
+	delete m_startNode;
 
 	//new Initialize
-	delete m_pEndNode;
+	delete m_endNode;
 
 	// tile_map配列を破棄する
 	RemoveTileMapArray();
@@ -157,10 +157,10 @@ void AStar::CreateTileMap(const vector<vector<int>>& map)
 	}
 
 	//スタート位置を設定
-	m_tileMap[m_pStartNode->Row()][m_pStartNode->Column()]->Attribute(S);
+	m_tileMap[m_startNode->Row()][m_startNode->Column()]->Attribute(S);
 
 	//ゴール位置を設定
-	m_tileMap[m_pEndNode->Row()][m_pEndNode->Column()]->Attribute(E);
+	m_tileMap[m_endNode->Row()][m_endNode->Column()]->Attribute(E);
 
 }
 
@@ -222,7 +222,7 @@ bool AStar::AddNodetoOpenList(int y, int x)
 			if (m_tileMap[y + i][x + j]->Attribute() == E)
 			{
 				// エンドノードの親ノードに現在のノードを設定する
-				m_pEndNode->Parent(m_tileMap[y][x]);
+				m_endNode->Parent(m_tileMap[y][x]);
 				// エンドノードに到達した
 				return false;
 			}
@@ -243,7 +243,7 @@ bool AStar::AddNodetoOpenList(int y, int x)
 				m_tileMap[y + i][x + j]->Parent(m_tileMap[y][x]);
 
 				// オープンリストに現在のノードを追加する
-				openList.push_back(m_tileMap[y + i][x + j]);
+				m_openList.push_back(m_tileMap[y + i][x + j]);
 			}
 		}
 	}
@@ -260,24 +260,24 @@ bool AStar::AddNodetoOpenList(int y, int x)
 //＋ーーーーーーーーーーーーーー＋
 void AStar::CalculateScore() 
 {
-	for (openListItr = openList.begin(); openListItr != openList.end(); openListItr++)
+	for (m_openListItr = m_openList.begin(); m_openListItr != m_openList.end(); m_openListItr++)
 	{
 		// コストを計算する
-		if ((*openListItr)->Cost() == 0)
+		if ((*m_openListItr)->Cost() == 0)
 		{
-			(*openListItr)->Cost((*openListItr)->Parent()->Cost() + (*openListItr)->Cost() + 1);
+			(*m_openListItr)->Cost((*m_openListItr)->Parent()->Cost() + (*m_openListItr)->Cost() + 1);
 		}
 	
 		// ヒューリスティックを計算する
-		if ((*openListItr)->Heuristic() == 0)
+		if ((*m_openListItr)->Heuristic() == 0)
 		{
-			(*openListItr)->Heuristic(Distance(m_pEndNode, *openListItr));
+			(*m_openListItr)->Heuristic(Distance(m_endNode, *m_openListItr));
 		}
 
 		// スコアーを計算する
-		if ((*openListItr)->Score() == 0)
+		if ((*m_openListItr)->Score() == 0)
 		{
-			(*openListItr)->Score((*openListItr)->Cost() + (*openListItr)->Heuristic());
+			(*m_openListItr)->Score((*m_openListItr)->Cost() + (*m_openListItr)->Heuristic());
 		}
 	}
 }
@@ -291,20 +291,20 @@ void AStar::CalculateScore()
 void AStar::SearchMinScoreNode() 
 {
 	// 先頭ノードを最小スコアのノードに設定する
-	list<Node*>::iterator minScoreItr = openList.begin();
+	list<Node*>::iterator minScoreItr = m_openList.begin();
 	
 	// オープンリストの中から最小スコアのノードを探す
-	for (openListItr = openList.begin(); openListItr != openList.end(); openListItr++)
+	for (m_openListItr = m_openList.begin(); m_openListItr != m_openList.end(); m_openListItr++)
 	{
-		if ((*minScoreItr)->Score() > (*openListItr)->Score()) 
+		if ((*minScoreItr)->Score() > (*m_openListItr)->Score())
 		{
 			// openlistイテレータをminscoreイテレータに代入する
-			minScoreItr = openListItr;
+			minScoreItr = m_openListItr;
 		}
 	}
 
 	// 最小スコアのノードイテレータを返す
-	this->minScoreItr = minScoreItr;
+	this->m_minScoreItr = minScoreItr;
 }
 
 
@@ -315,8 +315,8 @@ void AStar::SearchMinScoreNode()
 //＋ーーーーーーーーーーーーーー＋
 bool AStar::Search() 
 {	
-	int y = m_pStartNode->Row();	//スタート地点の行を取得
-	int x = m_pStartNode->Column();	//スタート地点の列を取得
+	int y = m_startNode->Row();	//スタート地点の行を取得
+	int x = m_startNode->Column();	//スタート地点の列を取得
 
 	//永久にループ
 	for (;;) 
@@ -334,11 +334,11 @@ bool AStar::Search()
 		SearchMinScoreNode();
 		
 		// 最小スコアのノードの行と列を設定する
-		y = (*minScoreItr)->Row();
-		x = (*minScoreItr)->Column();
+		y = (*m_minScoreItr)->Row();
+		x = (*m_minScoreItr)->Column();
 		
 		// オープンリストとクローズリストを処理する 
-		if (ProcessOpenCloseList(minScoreItr) == false)
+		if (ProcessOpenCloseList(m_minScoreItr) == false)
 		{
 			return false;
 		}	
@@ -347,18 +347,25 @@ bool AStar::Search()
 }
 
 
-// オープンリストとクローズリストを処理する 
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :オープンリストとクローズリストを処理する 
+//｜引数  :最小ノードのイテレータ     (list<Node*>::iterator )
+//｜戻り値:オープンリストが空ならfalse(bool)
+//＋ーーーーーーーーーーーーーー＋
 bool AStar::ProcessOpenCloseList(list<Node*>::iterator minscore_itr) 
 {
-	// クローズドリストに最小スコアのノードを追加する(Add minimum score node to open list)
-	closedList.push_back(*minscore_itr);
+	// クローズドリストに最小スコアのノードを追加する
+	m_closedList.push_back(*minscore_itr);
 	
-	// オープンリストから最小スコアのノードを削除する(Delete minimum score node from open list)
-	openList.erase(minscore_itr);
+	// オープンリストから最小スコアのノードを削除する
+	m_openList.erase(minscore_itr);
 
-	// オープンリストが空の場合は探索を中断する(Abort search process in case of no element of open list)
-	if (openList.size() == 0)
-		false;
+	// オープンリストが空の場合は探索を中断する
+	if (m_openList.size() == 0)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -373,7 +380,7 @@ Tile AStar::GetNext()
 	//ルートが空なら確定させる
 	if (m_route.empty())
 	{
-		SetRoute(m_pEndNode);
+		SetRoute(m_endNode);
 	}
 	return m_route[0];
 }
@@ -389,7 +396,7 @@ const vector<Tile>& AStar::GetRoute()
 	//ルートが空なら確定させる
 	if (m_route.empty())
 	{
-		SetRoute(m_pEndNode);
+		SetRoute(m_endNode);
 	}
 
 	return m_route;
