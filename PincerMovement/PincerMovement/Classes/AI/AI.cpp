@@ -90,9 +90,14 @@ void AI::UpdateRoute()
 	}
 }
 
+
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :道筋の更新をするべきかどうかを返す
+//｜引数  :なし(void)
+//｜戻り値:更新の必要があればtrue(bool)	
+//＋ーーーーーーーーーーーーーー＋
 bool AI::ShouldUpdateRoute()
 {
-
 	vector<Tile>::iterator itr;
 
 	for (itr = m_target.begin(); itr < m_target.end(); itr++)

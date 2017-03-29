@@ -64,24 +64,13 @@ void AStar::Initialize(const vector<vector<int>>& map, const Tile& start, vector
 	//delete Finalize
 	m_pStartNode = new Node(start.row, start.column, S, nullptr);
 
-	vector<Tile>::iterator itr;
-	int d = 9999;
-	int n = 0;
-	for (itr = end.begin(); itr < end.end(); itr++)
-	{
-		int deltaRow = start.row - itr->row;
-		int deltaColumn = start.column - itr->column;
 
-		if (abs(deltaRow) + abs(deltaColumn) < d)
-		{
-			d = abs(deltaRow) + abs(deltaColumn);
-			n = itr - end.begin();
-		}
-	}
+	//最も近いターゲットをゴールに設定
+	int target = FindNeedTile(start,end);
 
 	// エンドノードオブジェクトを生成する
 	//delete Finalize
-	m_pEndNode = new Node(end[n].row, end[n].column, E, nullptr);
+	m_pEndNode = new Node(end[target].row, end[target].column, E, nullptr);
 
 
 	// Nodeオブジェクトを生成し、tile_map配列にそのポインタを格納する

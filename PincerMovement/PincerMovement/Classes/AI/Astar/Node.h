@@ -7,6 +7,7 @@
 #include <iostream>
 #include <iomanip>
 
+
 enum attribute { O = 0, P, S, E };
 
 using namespace std;
