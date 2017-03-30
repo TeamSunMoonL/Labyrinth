@@ -12,6 +12,7 @@
 class Player;
 class Enemy;
 class DefenseTarget;
+class Map;
 
 class GameManager
 {

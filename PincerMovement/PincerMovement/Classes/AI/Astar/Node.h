@@ -19,7 +19,9 @@ enum attribute
 	O = 0, 
 	P,
 	S,
-	E 
+	E,
+	PLAYER,
+	ENEMY,
 };
 
 using namespace std;

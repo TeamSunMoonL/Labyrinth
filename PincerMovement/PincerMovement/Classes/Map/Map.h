@@ -31,6 +31,7 @@ public:
 	//•`‰æ
 	void Draw()const;
 
+	
 	//ƒ}ƒbƒv‚ðŽæ“¾
 	const std::vector<std::vector<int>>& Get()const { return m_map; }
 
