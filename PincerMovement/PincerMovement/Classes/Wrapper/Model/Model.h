@@ -17,6 +17,9 @@ namespace ShunLib
 	class Model
 	{
 	private:
+		// デバイス
+		ID3D11Device* m_device;
+
 		//モデルデータ
 		std::unique_ptr<DirectX::Model> m_model;
 
@@ -24,7 +27,7 @@ namespace ShunLib
 		std::unique_ptr<DirectX::EffectFactory> m_effect;
 
 	public:
-		//デフォルトコンストラクタ　ロボット
+		//デフォルトコンストラクタ　箱
 		Model();
 
 		//ファイル指定コンストラクタ

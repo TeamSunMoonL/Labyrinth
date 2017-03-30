@@ -1,19 +1,18 @@
 //************************************************/
-//* @file  :Vec3.cpp
-//* @brief :３次元ベクトル用のラップクラス
-//* @date  :2017/02/17
-//* @author:S.Katou
+//* @file  :Vec2.cpp
+//* @brief :2次元ベクトル用のラップクラス
+//* @date  :2017/03/29
+//* @author:K.Yamamoto
 //************************************************/
-#include "Vec3.h"
-using namespace ShunLib;
+#include "Vec2.h"
+using namespace YamagenLib;
 
 //＋ーーーーーーーーーーーーーー＋
 //｜機能  :デフォルトコンストラクタ
 //＋ーーーーーーーーーーーーーー＋
-Vec3::Vec3()
+Vec2::Vec2()
 	:m_x(0)
 	,m_y(0)
-	,m_z(0)
 {
 
 }
@@ -23,10 +22,9 @@ Vec3::Vec3()
 //｜機能  :値指定コンストラクタ
 //｜引数  :X,Y,Z(float,float,float)
 //＋ーーーーーーーーーーーーーー＋
-Vec3::Vec3(float x, float y, float z)
+Vec2::Vec2(float x, float y)
 	:m_x(x)
 	,m_y(y)
-	,m_z(z)
 {
 
 }
@@ -34,7 +32,7 @@ Vec3::Vec3(float x, float y, float z)
 //＋ーーーーーーーーーーーーーー＋
 //｜機能  :デストラクタ
 //＋ーーーーーーーーーーーーーー＋
-Vec3::~Vec3()
+Vec2::~Vec2()
 {
 
 }
@@ -45,55 +43,50 @@ Vec3::~Vec3()
 //｜引数  :なし　　(void)
 //｜戻り値:ベクトル(DirectX::SimpleMath::Vector3)	
 //＋ーーーーーーーーーーーーーー＋
-DirectX::SimpleMath::Vector3 ShunLib::Vec3::GetDirectVec3()
+DirectX::SimpleMath::Vector2 YamagenLib::Vec2::GetDirectVec2()
 {
-	DirectX::SimpleMath::Vector3 vec;
+	DirectX::SimpleMath::Vector2 vec;
 	vec.x = m_x;
 	vec.y = m_y;
-	vec.z = m_z;
 	return vec;
 }
 
 /*--[以下　演算子のオーバーロード]--*/
 
-Vec3& ShunLib::Vec3::operator=(const Vec3& V)
+Vec2& YamagenLib::Vec2::operator=(const Vec2& V)
 {
 	this->m_x = V.m_x;
 	this->m_y = V.m_y;
-	this->m_z = V.m_z;
 
 	return *this;
 }
 
-Vec3& ShunLib::Vec3::operator=(const DirectX::SimpleMath::Vector3& V)
+Vec2& YamagenLib::Vec2::operator=(const DirectX::SimpleMath::Vector2& V)
 {
 	this->m_x = V.x;
 	this->m_y = V.y;
-	this->m_z = V.z;
 
 	return *this;
 }
 
-Vec3& ShunLib::Vec3::operator+(const Vec3& V)
+Vec2& YamagenLib::Vec2::operator+(const Vec2& V)
 {
 	this->m_x += V.m_x;
 	this->m_y += V.m_y;
-	this->m_z += V.m_z;
 	return *this;
 }
 
-Vec3& ShunLib::Vec3::operator-(const Vec3& V)
+Vec2& YamagenLib::Vec2::operator-(const Vec2& V)
 {
 	this->m_x -= V.m_x;
 	this->m_y -= V.m_y;
-	this->m_z -= V.m_z;
 	return *this;
 }
 
-Vec3& ShunLib::Vec3::operator*(int num)
+Vec2& YamagenLib::Vec2::operator*(int num)
 {
 	this->m_x *= num;
 	this->m_y *= num;
-	this->m_z *= num;
+
 	return *this;
 }
