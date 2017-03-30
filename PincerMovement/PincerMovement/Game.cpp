@@ -7,8 +7,6 @@
 
 extern void ExitGame();
 
-using namespace DirectX;
-
 using Microsoft::WRL::ComPtr;
 
 Game::Game()
@@ -92,6 +90,10 @@ void Game::Render()
 
     m_deviceResources->PIXEndEvent();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     // Show the new frame.
     m_deviceResources->Present();
 }

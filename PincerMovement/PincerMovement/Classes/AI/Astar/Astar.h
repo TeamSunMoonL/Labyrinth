@@ -48,25 +48,22 @@ private:
 
 
 	// オープンリスト
-	list<Node*> openList;
+	list<Node*> m_openList;
 
 	// オープンリストイテレータ
-	list<Node*>::iterator openListItr;
+	list<Node*>::iterator m_openListItr;
 
 	// クローズドリスト
-	list<Node*> closedList;
-
-	// クローズドリストイテレータ
-	list<Node*>::iterator closedListItr;
+	list<Node*> m_closedList;
 
 	// 最小スコアイテレータ
-	list<Node*>::iterator minScoreItr;
+	list<Node*>::iterator m_minScoreItr;
 
 
 	// スタートノード
-	Node* m_pStartNode;
+	Node* m_startNode;
 	// エンドノード
-	Node* m_pEndNode;
+	Node* m_endNode;
 
 public:
 	// コンストラクタ

@@ -20,26 +20,14 @@
     <Filter Include="Classes\AI\Astar">
       <UniqueIdentifier>{00a63629-e832-4e5f-b2df-6634df79a187}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Object">
-      <UniqueIdentifier>{70848f61-cc96-4c85-bdf5-0fd42ae4ced1}</UniqueIdentifier>
+    <Filter Include="Classes\Map">
+      <UniqueIdentifier>{441fb89d-e040-40c2-aa55-ba881fbf14f7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\Wrapper">
-      <UniqueIdentifier>{f3805e54-909b-4ccd-b02c-99d1ee6ab69a}</UniqueIdentifier>
+      <UniqueIdentifier>{1a4eacf6-fa85-4f71-a230-3402712adec9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Wrapper\Vec2">
-      <UniqueIdentifier>{96bda949-ce49-46b2-b5d0-8ee47b5808d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Wrapper\Model">
-      <UniqueIdentifier>{d3b7e6c1-5c69-4117-9ccb-eb442c24c3a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Wrapper\Vec3">
-      <UniqueIdentifier>{c3c0b2ff-5882-49bc-a46d-f82af5548b91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Wrapper\Matrix">
-      <UniqueIdentifier>{6df40d04-4a2d-4bc2-876d-4499d9773ec2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Wrapper\Conversion">
-      <UniqueIdentifier>{89baa011-b6c1-4221-86c8-0f360120a3d4}</UniqueIdentifier>
+    <Filter Include="Classes\Object">
+      <UniqueIdentifier>{6febd40a-c9de-46d9-a4dd-27cce7d640fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -66,23 +54,27 @@
     <ClInclude Include="Classes\AI\AttackAI.h">
       <Filter>Classes\AI</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Conversion\Conversion.h" />
+    <ClInclude Include="Classes\GameMain\GameManager.h">
+      <Filter>Classes\GameMain</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Map\Map.h">
+      <Filter>Classes\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Wrapper\Matrix\Matrix.h">
+      <Filter>Classes\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Wrapper\Model\Model.h">
+      <Filter>Classes\Wrapper</Filter>
+    </ClInclude>
     <ClInclude Include="Classes\Object\Object.h">
       <Filter>Classes\Object</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Wrapper\Vec2\Vec2.h">
-      <Filter>Classes\Wrapper\Vec2</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Wrapper\Model\Model.h">
-      <Filter>Classes\Wrapper\Model</Filter>
+      <Filter>Classes\Wrapper</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Wrapper\Vec3\Vec3.h">
-      <Filter>Classes\Wrapper\Vec3</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Wrapper\Matrix\Matrix.h">
-      <Filter>Classes\Wrapper\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="Classes\Conversion\Conversion.h">
-      <Filter>Classes\Wrapper\Conversion</Filter>
+      <Filter>Classes\Wrapper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,23 +96,27 @@
     <ClCompile Include="Classes\AI\AttackAI.cpp">
       <Filter>Classes\AI</Filter>
     </ClCompile>
+    <ClCompile Include="Classes\Conversion\Conversion.cpp" />
+    <ClCompile Include="Classes\GameMain\GameManager.cpp">
+      <Filter>Classes\GameMain</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Map\Map.cpp">
+      <Filter>Classes\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrapper\Matrix\Matrix.cpp">
+      <Filter>Classes\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrapper\Model\Model.cpp">
+      <Filter>Classes\Wrapper</Filter>
+    </ClCompile>
     <ClCompile Include="Classes\Object\Object.cpp">
       <Filter>Classes\Object</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Wrapper\Vec2\Vec2.cpp">
-      <Filter>Classes\Wrapper\Vec2</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Wrapper\Model\Model.cpp">
-      <Filter>Classes\Wrapper\Model</Filter>
+      <Filter>Classes\Wrapper</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Wrapper\Vec3\Vec3.cpp">
-      <Filter>Classes\Wrapper\Vec3</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Wrapper\Matrix\Matrix.cpp">
-      <Filter>Classes\Wrapper\Matrix</Filter>
-    </ClCompile>
-    <ClCompile Include="Classes\Conversion\Conversion.cpp">
-      <Filter>Classes\Wrapper\Conversion</Filter>
+      <Filter>Classes\Wrapper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
