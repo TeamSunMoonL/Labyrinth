@@ -20,6 +20,9 @@
     <Filter Include="Classes\AI\Astar">
       <UniqueIdentifier>{00a63629-e832-4e5f-b2df-6634df79a187}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Map">
+      <UniqueIdentifier>{441fb89d-e040-40c2-aa55-ba881fbf14f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -48,6 +51,9 @@
     <ClInclude Include="Classes\GameMain\GameManager.h">
       <Filter>Classes\GameMain</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Map\Map.h">
+      <Filter>Classes\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -70,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="Classes\GameMain\GameManager.cpp">
       <Filter>Classes\GameMain</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Map\Map.cpp">
+      <Filter>Classes\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,11 @@
 
 using namespace std;
 
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :更新処理
+//｜引数  :なし(void)
+//｜戻り値:なし(void)
+//＋ーーーーーーーーーーーーーー＋
 void GameManager::Update()
 {
 	//Mapクラスから基礎マップ情報を取得

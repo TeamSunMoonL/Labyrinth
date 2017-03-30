@@ -156,6 +156,7 @@
     <ClInclude Include="Classes\AI\AttackAI.h" />
     <ClInclude Include="Classes\GameMain\GameMain.h" />
     <ClInclude Include="Classes\GameMain\GameManager.h" />
+    <ClInclude Include="Classes\Map\Map.h" />
     <ClInclude Include="DeviceResources.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="pch.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="Classes\AI\AttackAI.cpp" />
     <ClCompile Include="Classes\GameMain\GameMain.cpp" />
     <ClCompile Include="Classes\GameMain\GameManager.cpp" />
+    <ClCompile Include="Classes\Map\Map.cpp" />
     <ClCompile Include="DeviceResources.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />

@@ -1,3 +1,9 @@
+//************************************************/
+//* @file  :Node.h
+//* @brief :ノードクラスのヘッダー
+//* @date  :2017/03/29
+//* @author:S.Katou
+//************************************************/
 #ifndef NODE
 #define NODE
 #pragma once
@@ -8,10 +14,15 @@
 #include <iomanip>
 
 
-enum attribute { O = 0, P, S, E };
+enum attribute
+{
+	O = 0, 
+	P,
+	S,
+	E 
+};
 
 using namespace std;
-
 
 
 // Nodeクラス
@@ -26,8 +37,9 @@ class Node
 	Node* pParent;	//親ノード
 
 public:
-	// コンストラクタ
-	Node() { }
+	// コンストラクタ＆デストラクタ
+	Node() {}
+	~Node() {}
 	Node(int y, int x, int attr, Node* pParent) :
 		row(y), column(x), attr(attr), pParent(pParent),
 		cost(0), heuristic(0), score(0) 
@@ -49,12 +61,9 @@ public:
 	int Column() { return this->column; }
 
 
-
 	// 属性を表示する
 	void Attribute(int attr) { this->attr = attr; }
 	int  Attribute() { return this->attr; }
-
-
 
 	// コストを設定する
 	void Cost(int cost) { this->cost = cost; }
@@ -88,7 +97,6 @@ public:
 
 	// 親を取得する
 	Node* Parent() { return this->pParent; }
-
 };
 
 #endif // NODE

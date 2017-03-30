@@ -36,8 +36,8 @@ public:
 	//＋ーーーーーーーーーーーーーー＋
 	static GameManager* GetInstance()
 	{
-		static GameManager inst;
-		return &inst;
+		static GameManager instance;
+		return &instance;
 	}
 
 	// マップの更新
@@ -56,9 +56,8 @@ public:
 	/*--[以下隠蔽]--*/
 private: 
 
-	// コンストラクタ
+	// コンストラクタ＆デストラクタ
 	GameManager();
-
 	~GameManager();
 };
 
