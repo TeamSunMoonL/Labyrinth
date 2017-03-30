@@ -20,14 +20,8 @@
     <Filter Include="Classes\AI\Astar">
       <UniqueIdentifier>{00a63629-e832-4e5f-b2df-6634df79a187}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\Object">
-      <UniqueIdentifier>{70848f61-cc96-4c85-bdf5-0fd42ae4ced1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Wrapper">
-      <UniqueIdentifier>{f3805e54-909b-4ccd-b02c-99d1ee6ab69a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Wrapper\Vec2">
-      <UniqueIdentifier>{96bda949-ce49-46b2-b5d0-8ee47b5808d9}</UniqueIdentifier>
+    <Filter Include="Classes\Map">
+      <UniqueIdentifier>{441fb89d-e040-40c2-aa55-ba881fbf14f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,11 +48,11 @@
     <ClInclude Include="Classes\AI\AttackAI.h">
       <Filter>Classes\AI</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Object\Object.h">
-      <Filter>Classes\Object</Filter>
+    <ClInclude Include="Classes\GameMain\GameManager.h">
+      <Filter>Classes\GameMain</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\Wrapper\Vec2\Vec2.h">
-      <Filter>Classes\Wrapper\Vec2</Filter>
+    <ClInclude Include="Classes\Map\Map.h">
+      <Filter>Classes\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,11 +74,11 @@
     <ClCompile Include="Classes\AI\AttackAI.cpp">
       <Filter>Classes\AI</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Object\Object.cpp">
-      <Filter>Classes\Object</Filter>
+    <ClCompile Include="Classes\GameMain\GameManager.cpp">
+      <Filter>Classes\GameMain</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\Wrapper\Vec2\Vec2.cpp">
-      <Filter>Classes\Wrapper\Vec2</Filter>
+    <ClCompile Include="Classes\Map\Map.cpp">
+      <Filter>Classes\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

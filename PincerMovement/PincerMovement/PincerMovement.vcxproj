@@ -155,8 +155,8 @@
     <ClInclude Include="Classes\AI\Astar\Node.h" />
     <ClInclude Include="Classes\AI\AttackAI.h" />
     <ClInclude Include="Classes\GameMain\GameMain.h" />
-    <ClInclude Include="Classes\Object\Object.h" />
-    <ClInclude Include="Classes\Wrapper\Vec2\Vec2.h" />
+    <ClInclude Include="Classes\GameMain\GameManager.h" />
+    <ClInclude Include="Classes\Map\Map.h" />
     <ClInclude Include="DeviceResources.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="pch.h" />
@@ -167,8 +167,8 @@
     <ClCompile Include="Classes\AI\Astar\Astar.cpp" />
     <ClCompile Include="Classes\AI\AttackAI.cpp" />
     <ClCompile Include="Classes\GameMain\GameMain.cpp" />
-    <ClCompile Include="Classes\Object\Object.cpp" />
-    <ClCompile Include="Classes\Wrapper\Vec2\Vec2.cpp" />
+    <ClCompile Include="Classes\GameMain\GameManager.cpp" />
+    <ClCompile Include="Classes\Map\Map.cpp" />
     <ClCompile Include="DeviceResources.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
