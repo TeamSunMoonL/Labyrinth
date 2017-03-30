@@ -12,6 +12,9 @@
 #include "../Wrapper/Model/Model.h"
 #include "../Wrapper/Vec2/Vec2.h"
 #include "../AI/AI.h"
+
+#include "../Wrapper/Model/Model.h"
+
 // —ñ‹“Œ^
 enum Direction
 {
@@ -35,7 +38,7 @@ protected:
 	YamagenLib::Vec2 m_pos;
 
 	// 3Dƒ‚ƒfƒ‹
-	
+	ShunLib::Model m_model;
 
 	// •ûŒü
 	Direction m_direction;

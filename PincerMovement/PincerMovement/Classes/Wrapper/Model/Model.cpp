@@ -1,9 +1,8 @@
 #include "Model.h"
 #include <GeometricPrimitive.h>
 #include <SimpleMath.h>
-#include "../../../Direct3D.h"
 #include "../Matrix/Matrix.h"
-#include "../../../DirectXTK.h"
+#include "../../GameMain/GameMain.h"
 
 using namespace ShunLib;
 
@@ -12,9 +11,11 @@ using namespace ShunLib;
 //＋ーーーーーーーーーーーーーー＋
 Model::Model()
 {
-	m_effect = std::make_unique<DirectX::EffectFactory>(g_pd3dDevice.Get());
-	m_model = DirectX::Model::CreateFromCMO(g_pd3dDevice.Get(),
-		L"CMedia\\robot.cmo", *m_effect);
+	m_device = GameMain::m_deviceResources->GetD3DDevice();
+
+	m_effect = std::make_unique<DirectX::EffectFactory>(m_device);
+	m_model = DirectX::Model::CreateFromCMO(m_device,
+		L"CMedia\\ball.cmo", *m_effect);
 }
 
 
@@ -24,8 +25,8 @@ Model::Model()
 //＋ーーーーーーーーーーーーーー＋
 Model::Model(const wchar_t cmo[])
 {
-	m_effect = std::make_unique<DirectX::EffectFactory>(g_pd3dDevice.Get());
-	m_model = DirectX::Model::CreateFromCMO(g_pd3dDevice.Get(),cmo, *m_effect);
+	m_effect = std::make_unique<DirectX::EffectFactory>(m_device);
+	m_model = DirectX::Model::CreateFromCMO(m_device,cmo, *m_effect);
 }
 
 
@@ -48,8 +49,13 @@ void Model::Draw(const Matrix& world,
 						const Matrix& view,
 						const Matrix& proj)
 {
-	DirectX::SimpleMath::Matrix w = world.GetDirectMatrix();
-	DirectX::SimpleMath::Matrix v = view.GetDirectMatrix();
-	DirectX::SimpleMath::Matrix p = proj.GetDirectMatrix();
-	m_model->Draw(g_pImmediateContext.Get(), *g_state, w, v, p);
+	DirectX::SimpleMath::Matrix w = world.GetDirectMatrix();	// ワールド
+	DirectX::SimpleMath::Matrix v = view.GetDirectMatrix();		// ビュー
+	DirectX::SimpleMath::Matrix p = proj.GetDirectMatrix();		// プロジェクション
+
+	// コンテキスト
+	ID3D11DeviceContext* pImmediateContext = GameMain::m_deviceResources->GetD3DDeviceContext();
+
+	// 描画
+	m_model->Draw(pImmediateContext, *GameMain::m_state, w, v, p);
 }

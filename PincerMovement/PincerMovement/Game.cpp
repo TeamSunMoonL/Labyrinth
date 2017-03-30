@@ -91,6 +91,9 @@ void Game::Render()
 
     m_deviceResources->PIXEndEvent();
 
+	//Matrix world = Matrix::Identity*Matrix::CreateTranslation(Vector3(0, 0, 0));
+
+
     // Show the new frame.
     m_deviceResources->Present();
 }

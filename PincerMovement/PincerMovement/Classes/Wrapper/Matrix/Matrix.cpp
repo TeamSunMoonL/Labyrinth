@@ -6,7 +6,7 @@
 //************************************************/
 #include "Matrix.h"
 
-#include "../../ShunLib/Conversion.h"
+#include "../../Conversion/Conversion.h"
 
 using namespace ShunLib;
 

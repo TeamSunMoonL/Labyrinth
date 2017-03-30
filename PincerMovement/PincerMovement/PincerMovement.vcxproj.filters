@@ -32,6 +32,15 @@
     <Filter Include="Classes\Wrapper\Model">
       <UniqueIdentifier>{d3b7e6c1-5c69-4117-9ccb-eb442c24c3a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Wrapper\Vec3">
+      <UniqueIdentifier>{c3c0b2ff-5882-49bc-a46d-f82af5548b91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Wrapper\Matrix">
+      <UniqueIdentifier>{6df40d04-4a2d-4bc2-876d-4499d9773ec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Wrapper\Conversion">
+      <UniqueIdentifier>{89baa011-b6c1-4221-86c8-0f360120a3d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -66,6 +75,15 @@
     <ClInclude Include="Classes\Wrapper\Model\Model.h">
       <Filter>Classes\Wrapper\Model</Filter>
     </ClInclude>
+    <ClInclude Include="Classes\Wrapper\Vec3\Vec3.h">
+      <Filter>Classes\Wrapper\Vec3</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Wrapper\Matrix\Matrix.h">
+      <Filter>Classes\Wrapper\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Conversion\Conversion.h">
+      <Filter>Classes\Wrapper\Conversion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -94,6 +112,15 @@
     </ClCompile>
     <ClCompile Include="Classes\Wrapper\Model\Model.cpp">
       <Filter>Classes\Wrapper\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrapper\Vec3\Vec3.cpp">
+      <Filter>Classes\Wrapper\Vec3</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Wrapper\Matrix\Matrix.cpp">
+      <Filter>Classes\Wrapper\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Conversion\Conversion.cpp">
+      <Filter>Classes\Wrapper\Conversion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

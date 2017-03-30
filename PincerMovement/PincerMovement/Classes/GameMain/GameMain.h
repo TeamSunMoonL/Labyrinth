@@ -2,12 +2,17 @@
 //* @file  :GameMain.h
 //* @brief :ゲーム本体のヘッダー
 //* @date  :2017/03/27
-//* @author:S.Katou
+//* @author:S.Katou&K.Yamamoto
 //************************************************/
 #pragma once
 #include <memory>
 #include "../../pch.h"
 #include "../../DeviceResources.h"
+
+#include <CommonStates.h>
+#include <SpriteFont.h>
+#include <SpriteFont.h>
+
 
 class GameMain
 {
@@ -21,6 +26,15 @@ public:
 
 	// Device resources.
 	static std::shared_ptr<DX::DeviceResources>    m_deviceResources;
+
+	// コモンステート
+	static DirectX::CommonStates* m_state;
+
+	// スプライトバッチ
+	static DirectX::SpriteBatch* m_spriteBatch;
+
+	// スプライトフォント
+	static DirectX::SpriteFont* m_spriteFont;
 
 public:
 	GameMain(std::shared_ptr<DX::DeviceResources>  deviceResources);
