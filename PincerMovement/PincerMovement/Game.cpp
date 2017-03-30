@@ -13,8 +13,9 @@ using Microsoft::WRL::ComPtr;
 
 Game::Game()
 {
-	m_deviceResources = std::make_shared<DX::DeviceResources>();
+	m_deviceResources = std::make_unique<DX::DeviceResources>();
 	m_deviceResources->RegisterDeviceNotify(this);
+
 
 }
 
@@ -64,7 +65,7 @@ void Game::Update(DX::StepTimer const& timer)
     // TODO: Add your game logic here.
     elapsedTime;
 
-	//m_gameMain->Update();
+	m_gameMain->Update();
 
 }
 #pragma endregion
@@ -87,12 +88,9 @@ void Game::Render()
     // TODO: Add your rendering code here.
     context;
 
-	//m_gameMain->Render();
+	m_gameMain->Render();
 
     m_deviceResources->PIXEndEvent();
-
-	//Matrix world = Matrix::Identity*Matrix::CreateTranslation(Vector3(0, 0, 0));
-
 
     // Show the new frame.
     m_deviceResources->Present();

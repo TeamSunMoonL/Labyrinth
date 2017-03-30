@@ -13,9 +13,23 @@
 #include <SpriteFont.h>
 #include <SpriteFont.h>
 
+// テスト
+#include "../Wrapper/Model/Model.h"
+#include "../Wrapper/Matrix/Matrix.h"
 
 class GameMain
 {
+private:
+
+	// ビュー行列
+	ShunLib::Matrix m_view;
+
+	// プロジェクション行列
+	ShunLib::Matrix m_proj;
+
+	// モデル
+	ShunLib::Model* m_model;
+
 public:
 	//マップサイズ
 	static const int MAP_X = 25;
@@ -24,8 +38,8 @@ public:
 	//マップチップサイズ
 	static const int CHIP_SIZE = 32;
 
-	// Device resources.
-	static std::shared_ptr<DX::DeviceResources>    m_deviceResources;
+	// デバイスリソース
+	static std::shared_ptr<DX::DeviceResources> m_deviceResources;
 
 	// コモンステート
 	static DirectX::CommonStates* m_state;
@@ -37,7 +51,7 @@ public:
 	static DirectX::SpriteFont* m_spriteFont;
 
 public:
-	GameMain(std::shared_ptr<DX::DeviceResources>  deviceResources);
+	GameMain(std::shared_ptr<DX::DeviceResources> deviceResources);
 	~GameMain();
 
 	//更新処理

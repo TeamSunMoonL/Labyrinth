@@ -2,7 +2,7 @@
 //* @file  :Matrix.cpp
 //* @brief :行列用のラップクラス
 //* @date  :2017/02/22
-//* @author:S.Katou
+//* @author:S.Katou & K.Yamamoto
 //************************************************/
 #include "Matrix.h"
 
@@ -124,6 +124,24 @@ Matrix Matrix::CreateProj(float fov, float aspectRatio, float nearPlane, float f
 {
 	Matrix proj = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(ToRadian(fov),aspectRatio,nearPlane, farPlane);
 	return proj;
+}
+
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :ビュー行列の作成
+//｜引数  :カメラの位置　　　(Vec3)
+//｜引数  :カメラの注視点　　(Vec3)
+//｜引数  :カメラの上方方向  (Vec3)
+//｜戻り値:ビュー行列		   (Matrix)	
+//＋ーーーーーーーーーーーーーー＋
+Matrix ShunLib::Matrix::CreateLookAt(ShunLib::Vec3 eye, ShunLib::Vec3 target, ShunLib::Vec3 up)
+{
+	DirectX::SimpleMath::Matrix view;
+	DirectX::SimpleMath::Vector3 eyev = eye.GetDirectVec3();
+	DirectX::SimpleMath::Vector3 targetv = target.GetDirectVec3();
+	DirectX::SimpleMath::Vector3 upv = up.GetDirectVec3();
+	view = DirectX::SimpleMath::Matrix::CreateLookAt(eyev,targetv ,upv);
+
+	return view;
 }
 
 //＋ーーーーーーーーーーーーーー＋

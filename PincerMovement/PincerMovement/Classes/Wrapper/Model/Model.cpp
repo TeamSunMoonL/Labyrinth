@@ -4,6 +4,8 @@
 #include "../Matrix/Matrix.h"
 #include "../../GameMain/GameMain.h"
 
+#include "../../../Game.h"
+
 using namespace ShunLib;
 
 //＋ーーーーーーーーーーーーーー＋
@@ -14,8 +16,9 @@ Model::Model()
 	m_device = GameMain::m_deviceResources->GetD3DDevice();
 
 	m_effect = std::make_unique<DirectX::EffectFactory>(m_device);
+
 	m_model = DirectX::Model::CreateFromCMO(m_device,
-		L"CMedia\\ball.cmo", *m_effect);
+		L"CMedia\\robot.cmo", *m_effect);
 }
 
 
@@ -25,6 +28,7 @@ Model::Model()
 //＋ーーーーーーーーーーーーーー＋
 Model::Model(const wchar_t cmo[])
 {
+	m_device = GameMain::m_deviceResources->GetD3DDevice();
 	m_effect = std::make_unique<DirectX::EffectFactory>(m_device);
 	m_model = DirectX::Model::CreateFromCMO(m_device,cmo, *m_effect);
 }

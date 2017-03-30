@@ -2,7 +2,7 @@
 //* @file  :Matrix.h
 //* @brief :行列用のラップクラス
 //* @date  :2017/02/21
-//* @author:S.Katou
+//* @author:S.Katou & K.Yamamoto
 //************************************************/
 #pragma once
 #include <d3d11.h>
@@ -35,6 +35,12 @@ namespace ShunLib
 								 float aspectRatio,
 							     float nearPlane,
 							     float farPlane);
+
+		// ビュー行列の作成
+		static Matrix CreateLookAt(
+			ShunLib::Vec3 eye, 
+			ShunLib::Vec3 target, 
+			ShunLib::Vec3 up);
 
 		/*--[静的ではないやつら]--*/
 	private:
