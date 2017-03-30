@@ -107,9 +107,24 @@ void Map::LoadMap(string path)
 	{
 		for (int j = 0; j < GameMain::MAP_X; j++)
 		{
+			int num = j + (i*j);
+
 			// データを代入
-			m_map[i][j] = data[j + (i*j)];
+			m_map[i][j] = data[num];
+			
+			//プレイヤーの初期位置を保存
+			if (data[num] == PLAYER)
+			{
+				m_playerInitialPos.push_back(Tile{ i, j });
+				m_map[i][j] = P;
+			}
+
+			//敵の初期位置を保存
+			if (data[num] == ENEMY)
+			{
+				m_enemyInitialPos.push_back(Tile{ i, j });
+				m_map[i][j] = P;
+			}
 		}
 	}
-
 }

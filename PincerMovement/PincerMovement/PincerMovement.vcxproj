@@ -156,6 +156,8 @@
     <ClInclude Include="Classes\AI\AttackAI.h" />
     <ClInclude Include="Classes\Conversion\Conversion.h" />
     <ClInclude Include="Classes\GameMain\GameMain.h" />
+    <ClInclude Include="Classes\GameMain\GameManager.h" />
+    <ClInclude Include="Classes\Map\Map.h" />
     <ClInclude Include="Classes\Object\Object.h" />
     <ClInclude Include="Classes\Wrapper\Matrix\Matrix.h" />
     <ClInclude Include="Classes\Wrapper\Model\Model.h" />
@@ -172,6 +174,8 @@
     <ClCompile Include="Classes\AI\AttackAI.cpp" />
     <ClCompile Include="Classes\Conversion\Conversion.cpp" />
     <ClCompile Include="Classes\GameMain\GameMain.cpp" />
+    <ClCompile Include="Classes\GameMain\GameManager.cpp" />
+    <ClCompile Include="Classes\Map\Map.cpp" />
     <ClCompile Include="Classes\Object\Object.cpp" />
     <ClCompile Include="Classes\Wrapper\Matrix\Matrix.cpp" />
     <ClCompile Include="Classes\Wrapper\Model\Model.cpp" />

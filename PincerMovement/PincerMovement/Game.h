@@ -19,7 +19,6 @@ class Game : public DX::IDeviceNotify
 private:
 	std::unique_ptr<GameMain>m_gameMain;
 
-	Model m_model;
 
 public:
 

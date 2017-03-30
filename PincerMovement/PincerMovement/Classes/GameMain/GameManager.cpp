@@ -1,7 +1,7 @@
 //************************************************/
 //* @file  :gameManager.cpp
 //* @brief :ゲームを管理するクラスのソースファイル
-//* @date  :2017/03/29
+//* @date  :2017/03/30
 //* @author:S.Katou
 //************************************************/
 
@@ -11,6 +11,7 @@
 #include <sstream>
 #include "GameMain.h"
 #include "../AI/Astar/Node.h"
+#include "../Map/Map.h"
 
 using namespace std;
 
@@ -22,18 +23,7 @@ using namespace std;
 void GameManager::Update()
 {
 	//Mapクラスから基礎マップ情報を取得
-	
-	vector<int>::iterator itrY;
-	vector<vector<int>>::iterator itrX;
-
-	for (itrX = m_map.begin(); itrX != m_map.end(); itrX++)
-	{
-		for (itrY = itrX->begin(); itrY < itrX->end(); itrY++)
-		{
-			//マップデータコピー
-			m_map;
-		}
-	}
+	m_attributeMap = m_map->Get();
 
 	//プレイヤーの位置の属性を変更
 	m_player;
@@ -44,10 +34,23 @@ void GameManager::Update()
 
 
 
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :保管してあるデータを消去
+//｜引数  :なし(void)
+//｜戻り値:なし(void)
+//＋ーーーーーーーーーーーーーー＋
+void GameManager::Reset()
+{
+	m_player.clear();
+	m_enemy.clear();
+	m_target.clear();
+}
+
+
 /*--[以下隠蔽]--*/
 
 GameManager::GameManager()
-	:m_map(GameMain::MAP_Y,vector<int>(GameMain::MAP_X))
+	:m_attributeMap(GameMain::MAP_Y,vector<int>(GameMain::MAP_X))
 {
 
 }
