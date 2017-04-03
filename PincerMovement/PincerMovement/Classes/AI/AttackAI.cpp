@@ -1,12 +1,11 @@
 //************************************************/
 //* @file  :AttackAI.h
 //* @brief :1つのターゲットを追いかけるAIのソースファイル
-//* @date  :2017/03/29
+//* @date  :2017/04/03
 //* @author:S.Katou
 //************************************************/
 #include "../../pch.h"
 #include "AttackAI.h"
-
 
 //＋ーーーーーーーーーーーーーー＋
 //｜機能  :コンストラクタ
@@ -18,7 +17,7 @@ AttackAI::AttackAI(int attribute, int range)
 {
 	//ターゲット設定
 	//(GameManagerから取得予定)
-
+	
 
 }
 
@@ -32,6 +31,9 @@ void AttackAI::Update(const Tile& start)
 {
 	//現在位置更新
 	m_start = start;
+
+	//マップの更新
+	m_map = m_manager->GetMap();
 
 	//ルート上を索敵
 	if (Search())

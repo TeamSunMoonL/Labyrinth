@@ -26,6 +26,7 @@ Map::Map(int number)
 	switch (number)
 	{
 	case 0:	
+		mapPath = "../../MapCsv/Map1.csv";
 		break;
 	default:
 		break;

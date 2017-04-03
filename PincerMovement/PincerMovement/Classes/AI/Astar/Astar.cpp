@@ -153,6 +153,9 @@ void AStar::CreateTileMap(const vector<vector<int>>& map)
 		{
 			// tile_map配列にNodeオブジェクトへのポインタを格納する
 			m_tileMap[i][j] = new Node(i, j, map[i][j], nullptr);
+
+			//コストを設定する
+			m_tileMap[i][j]->AddCost(m_tileMap[i][j]->Attribute());
 		}
 	}
 

@@ -7,6 +7,7 @@
 #pragma once
 #include<vector>
 #include "Astar\Astar.h"
+#include "../GameMain/GameManager.h"
 
 class AI
 {
@@ -31,6 +32,9 @@ protected:
 
 	//õ“G”ÍˆÍ
 	int m_searchRange;
+
+	//î•ñæ“¾—p
+	GameManager* m_manager;
 
 public:
 
