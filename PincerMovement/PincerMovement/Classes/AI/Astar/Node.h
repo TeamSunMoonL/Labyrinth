@@ -16,12 +16,13 @@
 
 enum attribute
 {
-	O = 0, 
+	O = 0,
 	P,
 	S,
 	E,
-	PLAYER,
-	ENEMY,
+	PLAYER = 99,
+	ENEMY  = 100,
+	TARGET = 101,
 };
 
 using namespace std;

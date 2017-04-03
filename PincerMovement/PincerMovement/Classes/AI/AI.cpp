@@ -1,7 +1,7 @@
 //************************************************/
 //* @file  :AI.cpp
 //* @brief :AIのソースファイル
-//* @date  :2017/03/29
+//* @date  :2017/04/03
 //* @author:S.Katou
 //************************************************/
 #include "AI.h"
@@ -18,7 +18,7 @@ AI::AI(int attribute, int range)
 	:m_attribute(attribute)
 	,m_searchRange(range)
 {
-
+	m_manager = GameManager::GetInstance();
 }
 
 
@@ -70,13 +70,11 @@ void AI::UpdateRoute()
 {
 	if (ShouldUpdateRoute())
 	{
-		GameManager* manager = GameManager::GetInstance();
-
 		//A*法
 		AStar astar;
 
 		//初期化
-		astar.Initialize(manager->GetMap(), m_start, m_target);
+		astar.Initialize(m_manager->GetMap(), m_start, m_target);
 
 		//探索
 		astar.Search();

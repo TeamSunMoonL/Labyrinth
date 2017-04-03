@@ -53,6 +53,11 @@ public:
 	void Register(DefenseTarget* target) { m_target.push_back(target);}
 	void Register(Map* map)				 { m_map = map; }
 
+	//æ“¾
+	std::vector<Player*>& GetTarget()		 { return m_player; }
+	std::vector<Enemy*>& GetEnemy()			 { return m_enemy;  }
+	std::vector<DefenseTarget*>& GetPlayer() { return m_target; }
+
 	//ƒ}ƒbƒv‚Ìæ“¾
 	const std::vector<std::vector<int>>& GetMap() { return m_attributeMap; }
 
