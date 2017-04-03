@@ -14,6 +14,7 @@
 #include "../AI/AI.h"
 
 #include "../Wrapper/Model/Model.h"
+#include "../Wrapper/Matrix/Matrix.h"
 
 // 列挙型
 enum Direction
@@ -65,4 +66,11 @@ public:
 	// タイル座標取得
 	YamagenLib::Vec2 GetTilePos() { return m_tilePos; }
 
+	// はさまれ判定
+	bool SandwichedDecision();
+	
+	// 純粋仮想関数
+	virtual void Draw() = 0;	// 描画
+	virtual void Move() = 0;	// 移動
+	virtual void Update() = 0;	// 更新
 };

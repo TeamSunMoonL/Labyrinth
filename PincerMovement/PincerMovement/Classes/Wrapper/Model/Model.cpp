@@ -26,9 +26,9 @@ Model::Model()
 //｜機能  :ファイル指定コンストラクタ	
 //｜引数  :cmoファイルの名前(wchar_t[])
 //＋ーーーーーーーーーーーーーー＋
-Model::Model(const wchar_t cmo[])
+Model::Model(ID3D11Device* device,const wchar_t cmo[])
 {
-	m_device = GameMain::m_deviceResources->GetD3DDevice();
+	m_device = device;
 	m_effect = std::make_unique<DirectX::EffectFactory>(m_device);
 	m_model = DirectX::Model::CreateFromCMO(m_device,cmo, *m_effect);
 }
@@ -57,9 +57,6 @@ void Model::Draw(const Matrix& world,
 	DirectX::SimpleMath::Matrix v = view.GetDirectMatrix();		// ビュー
 	DirectX::SimpleMath::Matrix p = proj.GetDirectMatrix();		// プロジェクション
 
-	// コンテキスト
-	ID3D11DeviceContext* pImmediateContext = GameMain::m_deviceResources->GetD3DDeviceContext();
-
-	// 描画
-	m_model->Draw(pImmediateContext, *GameMain::m_state, w, v, p);
+	// 描画		// コンテキスト　ステート　ワールド　ビュー　プロジェクション
+	m_model->Draw(GameMain::m_deviceResources->GetD3DDeviceContext() , *GameMain::m_state, w, v, p);
 }

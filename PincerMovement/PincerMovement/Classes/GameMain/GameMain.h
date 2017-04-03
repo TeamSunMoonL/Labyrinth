@@ -60,6 +60,9 @@ public:
 	GameMain(std::shared_ptr<DX::DeviceResources> deviceResources);
 	~GameMain();
 
+	// ‰Šú‰»
+	void Initialize();
+
 	//XVˆ—
 	void Update();
 
