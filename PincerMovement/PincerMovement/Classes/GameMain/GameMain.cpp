@@ -13,9 +13,6 @@
 #include "../Wrapper/Vec3/Vec3.h"
 #include "../../Game.h"
 
-#include "../ImaseLib/Grid.h"
-#include "../ImaseLib/DebugCamera.h"
-
 const int GameMain::MAP_X;
 const int GameMain::MAP_Y;
 const int GameMain::CHIP_SIZE;

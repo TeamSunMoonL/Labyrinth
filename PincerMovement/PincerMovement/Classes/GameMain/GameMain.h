@@ -27,10 +27,9 @@ private:
 
 	// プロジェクション行列
 	ShunLib::Matrix m_proj;
-
 	
 	//マップ
-	Map* m_map;
+	ShunLib::Model* m_model;
 
 	//壁モデル
 	std::unique_ptr<DirectX::GeometricPrimitive> m_wall;
