@@ -49,18 +49,21 @@ GameMain::GameMain(std::shared_ptr<DX::DeviceResources> deviceResources)
 	m_spriteFont = new DirectX::SpriteFont(m_deviceResources->GetD3DDevice(), L"Font//myfile.spritefont");
 
 	//ビュー座標の設定(位置,注視点,上方向)
-	m_view = Matrix::CreateLookAt(Vec3(1 * 10 / 2.0f, 18.0f, 20.0f),
-		Vec3(1 * 10 / 2.0f, 0.0f, 1 * 10 / 2.0f),
+	m_view = Matrix::CreateLookAt(Vec3(0.0f, 20.0f, 20.0f),
+		Vec3(0.0f, 0.0f, 0.0f),
 		Vec3(0.0f, 1.0f, 0.0f));
 	
 	float windowHeight = static_cast<float>(m_deviceResources->GetOutputSize().bottom);	// 画面の高さ
-	float windowWidth = static_cast<float>(m_deviceResources->GetOutputSize().left);	// 画面の幅
+	float windowWidth = static_cast<float>(m_deviceResources->GetOutputSize().right);	// 画面の幅
 
 	// プロジェクション行列設定
-	m_proj = Matrix::CreateProj(M_PI_4, windowHeight / windowWidth, 0.1f, 1000.0f);
+	//m_proj = Matrix::CreateProj(120.0f, 480 / 640.0f, 0.1f, 1000.0f);
+	m_proj = Matrix::CreateProj(120.0f, windowHeight / windowWidth, 0.1f, 1000.0f);
 
-	// モデル作成
-	m_model = new Model;
+	m_map = new Map(0);
+
+	m_wall = (DirectX::GeometricPrimitive::CreateBox(GameMain::m_deviceResources->GetD3DDeviceContext(), Vec3(1, 1, 1).GetDirectVec3()));
+
 }
 
 GameMain::~GameMain()
@@ -71,6 +74,8 @@ GameMain::~GameMain()
 	delete m_spriteBatch;
 
 	delete m_spriteFont;
+
+	delete m_map;
 }
 
 void GameMain::Update()
@@ -80,12 +85,10 @@ void GameMain::Update()
 
 void GameMain::Render()
 {
-
-	
 	// ワールド座標
 	Matrix world = Matrix::Identity*Matrix::CreateTranslation(Vec3(0.0f, 0.0f, 0.0f));
 
-	// モデルの描画
-	m_model->Draw(world, m_view, m_proj);
 
+	m_wall->Draw(world.GetDirectMatrix(), m_view.GetDirectMatrix(), m_proj.GetDirectMatrix());
+	m_map->Draw(world, m_view, m_proj);
 }

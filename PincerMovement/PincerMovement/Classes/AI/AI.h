@@ -58,4 +58,6 @@ protected:
 	//道筋の更新をするべきかどうかを返す
 	virtual bool ShouldUpdateRoute();
 
+	//ターゲットを変更する
+	virtual void ChangeTarget() = 0;
 };

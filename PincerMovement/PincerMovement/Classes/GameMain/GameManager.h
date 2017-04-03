@@ -64,6 +64,8 @@ public:
 	//‰Šú‰»ˆ—
 	void Reset();
 
+
+
 	/*--[ˆÈ‰º‰B•Á]--*/
 private: 
 

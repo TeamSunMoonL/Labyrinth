@@ -1,7 +1,7 @@
 //************************************************/
 //* @file  :AttackAI.h
 //* @brief :拠点攻撃するAIのヘッダーファイル
-//* @date  :2017/03/29
+//* @date  :2017/04/03
 //* @author:S.Katou
 //************************************************/
 #pragma once
@@ -23,4 +23,7 @@ private:
 
 	//索敵（再帰用）
 	bool Search(int num);
+
+	//ターゲットの変更
+	void ChangeTarget()override;
 };

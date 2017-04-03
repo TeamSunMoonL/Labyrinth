@@ -1,24 +1,25 @@
 //************************************************/
 //* @file  :Map.h
 //* @brief :マップクラスのヘッダーファイル
-//* @date  :2017/03/30
+//* @date  :2017/04/03
 //* @author:S.Katou
 //************************************************/
 #pragma once
 #include <vector>
 #include <string>
-#include "../AI/Astar/Astar.h"
+#include <GeometricPrimitive.h>
+#include "../Wrapper/Matrix/Matrix.h"
 
-class Model;
+struct Tile;
 
 class Map
 {
 private:
 	//壁モデル
-	Model* m_wall;
+	std::unique_ptr<DirectX::GeometricPrimitive> m_wall;
 
 	//通路モデル
-	Model* m_road;
+	std::unique_ptr<DirectX::GeometricPrimitive> m_road;
 
 	//マップデータ
 	std::vector<std::vector<int>>m_map;
@@ -33,35 +34,18 @@ public:
 	~Map();
 
 	//描画
-	void Draw()const;
+	void Draw(const ShunLib::Matrix& world,
+		      const ShunLib::Matrix& view,
+			  const ShunLib::Matrix& proj)const;
 
 	//マップを取得
 	const std::vector<std::vector<int>>& Get()const { return m_map; }
 
 	//指定位置のマップの属性を取得
-	int Get(const Tile& tile) { return m_map[tile.row][tile.column]; }
+	int Get(const Tile& tile);
 
 	//指定した敵orプレイヤーの初期位置を取得
-	const Tile& Get(int charactor,int num)
-	{
-		Tile pos = { 0,0 };
-	
-		//敵orプレイヤーの初期位置を取得
-		switch (charactor)
-		{
-		case PLAYER:
-			pos = m_playerInitialPos[num];
-			break;
-
-		case ENEMY:
-			pos = m_enemyInitialPos[num];
-			break;
-		default:
-			break;
-		}
-
-		return pos;
-	}
+	const Tile& Get(int charactor, int num);
 
 
 private:

@@ -52,6 +52,13 @@ void AttackAI::Update(const Tile& start)
 //＋ーーーーーーーーーーーーーー＋
 bool AttackAI::Search()
 {
+	//ルートが無ければ
+	if (m_route.size() <= m_next)
+	{
+		//終了する
+		return false;
+	}
+
 	//索敵するタイル
 	Tile tile = m_route[m_next];
 
@@ -80,6 +87,13 @@ bool AttackAI::Search()
 //＋ーーーーーーーーーーーーーー＋
 bool AttackAI::Search(int num)
 {
+	//ルートが無ければ
+	if (m_route.size() <= num)
+	{
+		//終了する
+		return false;
+	}
+
 	//索敵範囲を超えていたら終了
 	if (num >= m_next + m_searchRange)
 	{
@@ -105,3 +119,15 @@ bool AttackAI::Search(int num)
 
 	return isDiscovery;
 }
+
+
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :道筋
+//｜引数  :なし(void)
+//｜戻り値:なし(void)	
+//＋ーーーーーーーーーーーーーー＋
+void AttackAI::ChangeTarget()
+{
+
+}
+

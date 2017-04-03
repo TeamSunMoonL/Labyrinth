@@ -16,6 +16,7 @@
 // テスト
 #include "../Wrapper/Model/Model.h"
 #include "../Wrapper/Matrix/Matrix.h"
+#include "../Map/Map.h"
 
 class GameMain
 {
@@ -27,16 +28,21 @@ private:
 	// プロジェクション行列
 	ShunLib::Matrix m_proj;
 
-	// モデル
-	ShunLib::Model* m_model;
+	
+	//マップ
+	Map* m_map;
+
+	//壁モデル
+	std::unique_ptr<DirectX::GeometricPrimitive> m_wall;
+
 
 public:
 	//マップサイズ
-	static const int MAP_X = 25;
+	static const int MAP_X = 26;
 	static const int MAP_Y = 16;
 	 
 	//マップチップサイズ
-	static const int CHIP_SIZE = 32;
+	static const int CHIP_SIZE = 1;
 
 	// デバイスリソース
 	static std::shared_ptr<DX::DeviceResources> m_deviceResources;
