@@ -16,10 +16,6 @@ class Game : public DX::IDeviceNotify
 private:
 	std::unique_ptr<GameMain>m_gameMain;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 public:
 
     Game();

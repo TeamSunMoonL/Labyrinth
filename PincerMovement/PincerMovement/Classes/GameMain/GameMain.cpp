@@ -13,12 +13,16 @@
 #include "../Wrapper/Vec3/Vec3.h"
 #include "../../Game.h"
 
+#include "../ImaseLib/Grid.h"
+#include "../ImaseLib/DebugCamera.h"
+
 const int GameMain::MAP_X;
 const int GameMain::MAP_Y;
 const int GameMain::CHIP_SIZE;
 
 // 名前空間使用
 using namespace ShunLib;
+
 
 // 静的変数宣言
 // デバイスリソース
@@ -48,19 +52,6 @@ GameMain::GameMain(std::shared_ptr<DX::DeviceResources> deviceResources)
 	// スプライトフォント作成
 	m_spriteFont = new DirectX::SpriteFont(m_deviceResources->GetD3DDevice(), L"Font//myfile.spritefont");
 
-	//ビュー座標の設定(位置,注視点,上方向)
-	m_view = Matrix::CreateLookAt(Vec3(1 * 10 / 2.0f, 18.0f, 20.0f),
-		Vec3(1 * 10 / 2.0f, 0.0f, 1 * 10 / 2.0f),
-		Vec3(0.0f, 1.0f, 0.0f));
-	
-	float windowHeight = static_cast<float>(m_deviceResources->GetOutputSize().bottom);	// 画面の高さ
-	float windowWidth = static_cast<float>(m_deviceResources->GetOutputSize().left);	// 画面の幅
-
-	// プロジェクション行列設定
-	m_proj = Matrix::CreateProj(M_PI_4, windowHeight / windowWidth, 0.1f, 1000.0f);
-
-	// モデル作成
-	m_model = new Model;
 }
 
 GameMain::~GameMain()
@@ -73,19 +64,45 @@ GameMain::~GameMain()
 	delete m_spriteFont;
 }
 
+// 初期化
+void GameMain::Initialize()
+{
+	//ビュー座標の設定(位置,注視点,上方向)
+	m_view = Matrix::CreateLookAt(Vec3(0.0f,2.0f,5.0f),Vec3(0.0f,2.0f,0.0f),Vec3(0.0f,1.0f,0.0f));
+
+	float windowHeight = static_cast<float>(m_deviceResources->GetOutputSize().bottom);	// 画面の高さ
+	float windowWidth = static_cast<float>(m_deviceResources->GetOutputSize().right);	// 画面の幅
+
+	// プロジェクション行列設定 M_PI_4
+	m_proj = Matrix::CreateProj(120.0f, windowWidth/windowHeight, 1.0f, 100.0f);
+
+	// モデル作成
+	m_model = new Model(m_deviceResources->GetD3DDevice(), L"CMedia\\robot.cmo");
+
+}
+
 void GameMain::Update()
 {
+
 
 }
 
 void GameMain::Render()
 {
 
-	
 	// ワールド座標
-	Matrix world = Matrix::Identity*Matrix::CreateTranslation(Vec3(0.0f, 0.0f, 0.0f));
+	Matrix world;
+
+	// 描画開始
+	m_spriteBatch->Begin();
 
 	// モデルの描画
 	m_model->Draw(world, m_view, m_proj);
 
+	wchar_t str[128];
+	swprintf(str, 128, L"test");
+	m_spriteFont->DrawString(m_spriteBatch, str, DirectX::XMFLOAT2(10.0f, 10.0f));
+
+	// 描画終わり
+	m_spriteBatch->End();
 }

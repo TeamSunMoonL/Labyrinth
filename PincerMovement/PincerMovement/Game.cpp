@@ -40,6 +40,9 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
 	m_gameMain = std::make_unique<GameMain>(m_deviceResources);
+
+	// ‰Šú‰»
+	m_gameMain->Initialize();
 }
 
 #pragma region Frame Update
@@ -90,10 +93,6 @@ void Game::Render()
 
     m_deviceResources->PIXEndEvent();
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     // Show the new frame.
     m_deviceResources->Present();
 }
@@ -108,7 +107,7 @@ void Game::Clear()
     auto renderTarget = m_deviceResources->GetRenderTargetView();
     auto depthStencil = m_deviceResources->GetDepthStencilView();
 
-    context->ClearRenderTargetView(renderTarget, Colors::CornflowerBlue);
+    context->ClearRenderTargetView(renderTarget, DirectX::Colors::CornflowerBlue);
     context->ClearDepthStencilView(depthStencil, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
     context->OMSetRenderTargets(1, &renderTarget, depthStencil);
 
