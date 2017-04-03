@@ -37,6 +37,9 @@ protected:
 	// 座標
 	YamagenLib::Vec2 m_pos;
 
+	// タイル座標
+	YamagenLib::Vec2 m_tilePos;
+
 	// 3Dモデル
 	ShunLib::Model m_model;
 
@@ -58,5 +61,8 @@ public:
 
 	// デストラクタ
 	~Object();
+
+	// タイル座標取得
+	YamagenLib::Vec2 GetTilePos() { return m_tilePos; }
 
 };
