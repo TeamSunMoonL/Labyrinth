@@ -17,6 +17,7 @@ namespace ShunLib
 	class Model
 	{
 	private:
+
 		// デバイス
 		ID3D11Device* m_device;
 
@@ -31,10 +32,11 @@ namespace ShunLib
 		Model();
 
 		//ファイル指定コンストラクタ
-		Model(const wchar_t[]);
+		Model(ID3D11Device* device,const wchar_t cmo[]);
 
 		//デストラクタ
 		~Model();
+
 
 		//描画
 		void Draw(const Matrix& world,

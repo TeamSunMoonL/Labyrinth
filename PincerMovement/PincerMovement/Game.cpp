@@ -40,6 +40,9 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
 	m_gameMain = std::make_unique<GameMain>(m_deviceResources);
+
+	// ‰Šú‰»
+	m_gameMain->Initialize();
 }
 
 #pragma region Frame Update
