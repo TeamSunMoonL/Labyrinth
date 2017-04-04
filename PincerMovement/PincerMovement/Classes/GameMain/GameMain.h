@@ -18,6 +18,9 @@
 #include "../Wrapper/Matrix/Matrix.h"
 #include "../Map/Map.h"
 
+class AttackAI;
+struct Tile;
+
 class GameMain
 {
 private:
@@ -35,6 +38,9 @@ private:
 	std::unique_ptr<DirectX::GeometricPrimitive> m_wall;
 
 	Map* m_map;
+
+	AttackAI* m_tmpAI;
+	Tile* m_tile;
 
 public:
 	//マップサイズ

@@ -4,6 +4,7 @@
 
 #include "pch.h"
 #include "Game.h"
+#include <time.h>
 
 using namespace DirectX;
 
@@ -85,6 +86,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 
         g_game->Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top);
     }
+
+
+	std::srand(static_cast<unsigned int>(time(nullptr)));
 
     // Main message loop
     MSG msg = { 0 };

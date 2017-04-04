@@ -18,7 +18,6 @@ AttackAI::AttackAI(int attribute, int range)
 	//ターゲット設定
 	//(GameManagerから取得予定)
 	
-
 }
 
 
@@ -56,7 +55,7 @@ bool AttackAI::Search()
 	if (static_cast<int>(m_route.size()) <= m_next)
 	{
 		//終了する
-		return false;
+		return true;
 	}
 
 	//索敵するタイル

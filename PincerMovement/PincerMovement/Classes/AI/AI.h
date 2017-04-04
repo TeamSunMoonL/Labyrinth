@@ -8,6 +8,7 @@
 #include<vector>
 #include "Astar\Astar.h"
 #include "../GameMain/GameManager.h"
+#include <GeometricPrimitive.h>
 
 class AI
 {
@@ -60,4 +61,27 @@ protected:
 
 	//ターゲットを変更する
 	virtual void ChangeTarget() = 0;
+
+
+
+	/*--[以下デバッグ＆発表用]--*/
+private:
+	//デバッグ用ターゲットモデル
+	std::unique_ptr<DirectX::GeometricPrimitive> m_model;
+
+public:
+	//ターゲットをランダムに決定
+	//（デバッグ用）
+	void RandamTarget();
+
+	void DrawDebug(const ShunLib::Matrix& view,
+				   const ShunLib::Matrix& proj)const
+	{
+		for (int i = 0; i < static_cast<int>(m_target.size()); i++)
+		{
+			ShunLib::Matrix pos = ShunLib::Matrix::CreateTranslation(ShunLib::Vec3(m_target[i].column*GameMain::CHIP_SIZE, 0.0f, m_target[i].row*GameMain::CHIP_SIZE));
+			m_model->Draw(pos.GetDirectMatrix(), view.GetDirectMatrix(), proj.GetDirectMatrix(), DirectX::Colors::Gold);
+		}
+	};
+
 };

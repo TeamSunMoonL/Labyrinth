@@ -17,8 +17,11 @@
 AI::AI(int attribute, int range)
 	:m_attribute(attribute)
 	,m_searchRange(range)
+	,m_next(0)
+	, m_model(DirectX::GeometricPrimitive::CreateSphere(GameMain::m_deviceResources->GetD3DDeviceContext()))
 {
 	m_manager = GameManager::GetInstance();
+	m_map = m_manager->GetMap();
 }
 
 
@@ -30,6 +33,13 @@ AI::AI(int attribute, int range)
 Tile AI::GetNext()
 {
 	//次に進む座標を取得
+	//ルートが無ければ
+	if (static_cast<int>(m_route.size()) <= m_next)
+	{
+		//終了する
+		return m_route[m_next - 1];
+	}
+
 	Tile nextTile = m_route[m_next];
 
 	//次の座標が進行不可能ならば
@@ -114,3 +124,31 @@ bool AI::ShouldUpdateRoute()
 }
 
 
+//＋ーーーーーーーーーーーーーー＋
+//｜機能  :ランダムで通過可能タイルを取得
+//｜引数  :なし(void)
+//｜戻り値:タイル(TIle)	
+//＋ーーーーーーーーーーーーーー＋
+void AI::RandamTarget()
+{
+	if (m_target.empty() != true)
+	{
+		m_target.clear();
+		m_target.shrink_to_fit();
+		m_target.push_back(Tile{ 0,0 });
+	}
+	else
+	{
+		m_target.push_back(Tile{ 0,0 });
+	}
+
+
+	m_target[0].column = rand() % GameMain::MAP_X;
+	m_target[0].row = rand() % GameMain::MAP_Y;
+
+	if (m_map[m_target[0].row][m_target[0].column] != P)
+	{
+		RandamTarget();
+	}
+
+}

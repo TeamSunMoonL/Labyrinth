@@ -1,7 +1,7 @@
 //************************************************/
-//* @file  :gameManager.cpp
+//* @file  :GameManager.cpp
 //* @brief :ゲームを管理するクラスのソースファイル
-//* @date  :2017/03/30
+//* @date  :2017/04/04
 //* @author:S.Katou
 //************************************************/
 
@@ -14,6 +14,11 @@
 #include "../Map/Map.h"
 
 using namespace std;
+void GameManager::Register(Map* map)
+{
+	m_map = map;
+	m_attributeMap = m_map->Get();
+}
 
 //＋ーーーーーーーーーーーーーー＋
 //｜機能  :更新処理
@@ -42,8 +47,12 @@ void GameManager::Update()
 void GameManager::Reset()
 {
 	m_player.clear();
+	m_player.shrink_to_fit();
 	m_enemy.clear();
+	m_enemy.shrink_to_fit();
 	m_target.clear();
+	m_target.shrink_to_fit();
+
 }
 
 

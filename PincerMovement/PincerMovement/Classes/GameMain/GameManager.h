@@ -1,7 +1,7 @@
 //************************************************/
-//* @file  :gameManager.h
+//* @file  :GameManager.h
 //* @brief :ゲームを管理するクラスのヘッダーファイル
-//* @date  :2017/03/30
+//* @date  :2017/04/04
 //* @author:S.Katou
 //************************************************/
 #pragma once
@@ -44,19 +44,20 @@ public:
 		return &instance;
 	}
 
-	// マップの更新
-	void Update();
-
 	// 登録
 	void Register(Player* player)		 { m_player.push_back(player);}
 	void Register(Enemy* enemy)			 { m_enemy.push_back(enemy);  }
 	void Register(DefenseTarget* target) { m_target.push_back(target);}
-	void Register(Map* map)				 { m_map = map; }
+	void Register(Map* map);
 
 	//取得
 	std::vector<Player*>& GetTarget()		 { return m_player; }
 	std::vector<Enemy*>& GetEnemy()			 { return m_enemy;  }
 	std::vector<DefenseTarget*>& GetPlayer() { return m_target; }
+
+	// マップの更新
+	void Update();
+
 
 	//マップの取得
 	const std::vector<std::vector<int>>& GetMap() { return m_attributeMap; }
