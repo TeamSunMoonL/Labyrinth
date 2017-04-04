@@ -53,7 +53,7 @@ void AttackAI::Update(const Tile& start)
 bool AttackAI::Search()
 {
 	//ルートが無ければ
-	if (m_route.size() <= m_next)
+	if (static_cast<int>(m_route.size()) <= m_next)
 	{
 		//終了する
 		return false;
@@ -88,7 +88,7 @@ bool AttackAI::Search()
 bool AttackAI::Search(int num)
 {
 	//ルートが無ければ
-	if (m_route.size() <= num)
+	if (static_cast<int>(m_route.size()) <= num)
 	{
 		//終了する
 		return false;

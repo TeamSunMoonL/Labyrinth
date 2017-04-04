@@ -108,7 +108,7 @@ int Map::Get(const Tile& tile)
 //｜引数  :オブジェクト番号(int)
 //｜戻り値:初期位置(Tile)
 //＋ーーーーーーーーーーーーーー＋
-const Tile& Map::Get(int charactor, int num)
+const Tile Map::Get(int charactor, int num)
 {
 	Tile pos = { 0,0 };
 

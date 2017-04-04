@@ -45,7 +45,7 @@ public:
 	int Get(const Tile& tile);
 
 	//指定した敵orプレイヤーの初期位置を取得
-	const Tile& Get(int charactor, int num);
+	const Tile Get(int charactor, int num);
 
 
 private:

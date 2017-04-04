@@ -59,23 +59,28 @@ GameMain::~GameMain()
 	delete m_spriteBatch;
 
 	delete m_spriteFont;
+
+	delete m_map;
 }
 
 // 初期化
 void GameMain::Initialize()
 {
 	//ビュー座標の設定(位置,注視点,上方向)
-	m_view = Matrix::CreateLookAt(Vec3(0.0f,2.0f,5.0f),Vec3(0.0f,2.0f,0.0f),Vec3(0.0f,1.0f,0.0f));
+	float x = MAP_X*CHIP_SIZE / 2.0f;
+	float z = MAP_Y*CHIP_SIZE * 2.0f;
+	m_view = Matrix::CreateLookAt(Vec3(x,20.0f,z),Vec3(x,0.0f,5.0f),Vec3(0.0f,1.0f,0.0f));
 
 	float windowHeight = static_cast<float>(m_deviceResources->GetOutputSize().bottom);	// 画面の高さ
 	float windowWidth = static_cast<float>(m_deviceResources->GetOutputSize().right);	// 画面の幅
 
 	// プロジェクション行列設定 M_PI_4
-	m_proj = Matrix::CreateProj(120.0f, windowWidth/windowHeight, 1.0f, 100.0f);
+	m_proj = Matrix::CreateProj(180.0f/4, windowWidth/windowHeight, 1.0f, 100.0f);
 
 	// モデル作成
 	m_model = new Model(m_deviceResources->GetD3DDevice(), L"CMedia\\robot.cmo");
 
+	m_map = new Map(0);
 }
 
 void GameMain::Update()
@@ -99,6 +104,10 @@ void GameMain::Render()
 	wchar_t str[128];
 	swprintf(str, 128, L"test");
 	m_spriteFont->DrawString(m_spriteBatch, str, DirectX::XMFLOAT2(10.0f, 10.0f));
+
+	//マップ描画
+	Matrix mapPos = Matrix::CreateTranslation(Vec3(0.0f, -1.5f, 0.0f));
+	m_map->Draw(mapPos, m_view, m_proj);
 
 	// 描画終わり
 	m_spriteBatch->End();

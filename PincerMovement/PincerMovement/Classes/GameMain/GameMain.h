@@ -34,6 +34,7 @@ private:
 	//壁モデル
 	std::unique_ptr<DirectX::GeometricPrimitive> m_wall;
 
+	Map* m_map;
 
 public:
 	//マップサイズ
